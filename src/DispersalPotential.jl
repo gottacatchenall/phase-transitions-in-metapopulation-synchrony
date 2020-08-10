@@ -56,4 +56,6 @@ function get_dispersal_matrix(dispersal_potential::Array{Float64,2}, migration_r
         end
     end
 
+    return dispersal_matrix
+
 end
