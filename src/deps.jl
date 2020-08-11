@@ -1,12 +1,17 @@
 using StatsBase, Distributions, DataFrames, CSV, ProgressMeter, LinearAlgebra, Distances, Plots
 
-cd("/home/michael/phase_transitions_in_metapopulation_synchrony/")
+wd = pwd()
+cd("/home/michael/phase_transitions_in_metapopulation_synchrony/src")
 
-include("./DispersalPotential.jl")
 include("./Metapopulation.jl")
-include("./Generators.jl")
+include("./DispersalKernel.jl")
+include("./DispersalPotential.jl")
 include("./Dynamics.jl")
-include("./SummarizingStats.jl")
 include("./Logging.jl")
 include("./TreatmentFactory.jl")
+include("./StochasticLogisticWDiffusion.jl")
+include("./SummaryStats.jl")
 include("./Vis.jl")
+
+
+cd(wd)

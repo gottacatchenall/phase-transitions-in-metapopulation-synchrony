@@ -2,6 +2,7 @@
 - Different Distributions of $m$, $k$,  and $\lambda$ across pops to create source-sink dynamics
 - Comparing modularity of synchrony to eigenvalue centrality
 - How does synchrony change MTE?
+- Use an SBM to measure modular stucture of communities from synchrony data
 
 # Software Paper
 - Estimate MTE from data
