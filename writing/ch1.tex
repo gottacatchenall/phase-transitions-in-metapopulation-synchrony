@@ -1,0 +1,402 @@
+\hypertarget{the-construction-of-space-in-ecological-models}{%
+\section{The Construction of Space in Ecological
+Models}\label{the-construction-of-space-in-ecological-models}}
+
+\begin{quote}
+The electron is a theory we use; it is so useful in understanding the
+way nature works that we can almost call it real.
+
+\begin{flushright}Richard P. Feynman\end{flushright}
+\end{quote}
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+Life on Earth takes on an endless diversity of forms. Yet, the
+characteristics that define `life' impose parameters on the properties
+that biological entities must exhibit, and constraints on how these
+entities can change over time. These are the fundamental principles of
+evolution and ecology---entities that reproduce themselves more than
+average become more frequent, there is a limit on resources, and so on.
+Over the billions of years life has been on this planet, these forces
+have produced an astonishing diversity of forms and functions. The
+forces that drive evolutionary and ecological processes do not occur on
+a single scale---they emerge out of the interactions that occur across
+all levels of spatial and temporal biological organization
+(@levin\_problem\_1992).
+
+Understanding how ecological processes change across space, within and
+across scales, is central to the questions of ecology and evolution. The
+spatial distribution of individuals is central to behavioral ecology,
+the spatial distribution of species to biogeography, the spatial
+distribution of genes to speciation, and so on. Further, the influence
+of space on ecological processes has significant applied importance as
+human activity has drastically altered the face of our planet in an
+extremely short period of time (@bigelow\_major\_2017,
+@vitousek\_human\_1997). Land-use change has shifted the amount and
+configuration of Earth's habitats, and climate change is shifting the
+spatial distribution of environmental factors and species' distributions
+(@pereira\_scenarios\_2010, @thomas\_climate\_2010,
+@loarie\_velocity\_2009). This drastic change in the structure of our
+planet's terrain has had overwhelmingly negative effects on the
+biodiversity to which it is home (@haddad\_habitat\_2015,
+@rands\_biodiversity\_2010). This has, in turn, degraded ecosystem
+functioning, and the services provided by ecosystem functioning, around
+the globe (@tilman\_biodiversity\_2014, @cardinale\_biodiversity\_2012).
+
+Historically, studies of the effects of landscape structure on
+biodiversity have fallen under the broad umbrella of ``habitat
+fragmentation'' (@collinge\_ecology\_2009). However, there has been
+significant debate regarding what is meant by this term. The primary
+distinction here is the difference between the word \emph{fragmentation}
+as it is commonly used as a catchall to describe a combination of
+habitat loss and ensuing subdivision, and \emph{fragmentation per se},
+which is purely the spatial separation or reconfiguration of the same
+amount of habitat (@fahrig\_effects\_2003). The effect of spatial
+subdivision independent of habitat loss (fragmentation \emph{per se}) on
+biodiversity is still hotly contested (@fahrig\_is\_2019,
+@fletcher\_is\_2018, @fahrig\_ecological\_2017,
+@ewers\_confounding\_2006). However, it is abundantly clear that the
+combined effects of habitat loss and subdivision have had negative
+effects on the planet's biodiversity (@haddad\_habitat\_2015). As a
+result, a major focus on conservation efforts has become understanding
+and predicting the simultaneous effects of habitat loss and subdivision
+on ecosystem structure and stability (@fletcher\_spatial\_2019).
+
+In order to understand and predict the consequences of landscape change,
+we first need models to bridge the gap between the data we can collect
+and the inferences and predictions we wish to make about the world.
+Before we can construct quantitative models to make predictions with
+real data, we first need to conceptualize the process we are modeling in
+space. Over the years, ecologists have considered many different ways of
+representing the structure of space and its influence on ecological
+processes, using a variety of frameworks and tools to represent
+different processes across different scales. Here, we examine the role
+that model construction plays in scientific epistemology to better
+understand how models can be used and compared, and review the various
+constructions of space ecological models have used in the past.
+
+\hypertarget{what-is-a-model}{%
+\subsection{What is a Model?}\label{what-is-a-model}}
+
+Science is fundamentally a theory of epistemology---a way of knowing.
+Within the constraints of scientific epistemology, for a scientific
+theory to be considered valid, it must be falsifiable through
+observation, and for a theory to be disproven through observation, it
+must make predictions that may or may not agree with observed reality
+(@popper\_logic\_1934). In this view, a scientific model can be seen as
+a function---some ontological object, \(f\), that maps measurable input
+conditions, \(\vec{x}\), to a predicted outcome, \(y=f(\vec{x})\).
+
+Constructing models is inherently a creative act. Before we can
+introduce any quantitative representation of a process, we need to
+conceptualize what it is we should even be quantifying. In \emph{What is
+Philosophy?}, Deleuze \& Guattari (1991) answer the eponymous question
+by suggesting philosophy is the act of concept creation. They write:
+
+\begin{quote}
+In fact, the sciences, arts, and philosophies are all equally
+creators\ldots{} Concepts do not wait for us ready-made, like celestial
+bodies. There is no heaven for concepts. They must be invented,
+fabricated, or rather created, and would be nothing without the
+signature of those who create them. (Deleuze \& Guattari 1991)
+\end{quote}
+
+In this view, scienctific modeling, too, is an act of creation, not
+discovery. The concepts we use to frame natural systems are not inherent
+properties of nature. Especially in ecology, it often seems the atomic
+unit is the individual, yet this ignores differences in that
+individual's cells, driven by biochemical processes that are the product
+of interactions molecules within those cells, and so on---there is not
+natural or correct scale on which to model natural processes
+(@levin\_problem\_1992), and the conceptual frameworks we use to model
+ecosystems are tools created by the modeler. Just as Newtonian Gravity,
+General Relativity, and the Principle of Least-Action all describe and
+predict the same phenomena using entirely different conceptual
+frameworks (@arkani-hamed\_future\_2012, @feynman\_feynman\_1965), valid
+ecological models can be framed in a variety of different ways.
+
+A model's ``correctness'' can be measured as the difference between its
+prediction, \(y\), and observed reality, \(\hat{y}\)
+(@jaynes\_probability\_2003). However, all models have information baked
+into them based on how they define \(f\), and how much information is
+already contained in \(\vec{x}\) . Further, as we add more parameters to
+a model it becomes harder to disprove that our predictions \(y\) don't
+agree with \(\hat{y}\). To deal with this general problem of
+overfitting, we turn to the theory of model selection. Model selection
+is rooted in information theory---many common methods for model
+selection---Minimum Description Length, AIC, BIC---revolve around the
+huerstic that better models maximize that ratio of how much information
+a model provides in predictive power to how much is built information
+into the model structure (@jaynes\_probability\_2003,
+@stine\_model\_2004). Other methods, like crossvalidation, aim to test
+the predictive accuracy of a model by testing it on data it hasn't
+``seen'' yet. (@konishi\_information\_2008). Either way, this provides
+criteria by which to assess how models compare to one another in their
+capacity to explain natural phenomena. However, what is actually meant
+by `model' in practice varies widely. We use models for a variety of
+things---inference, hypothesis-testing, prediction---and for these
+different purposes we use a different methods to construct \(f\).
+
+Breiman (2001) partitions models into two types: data models and
+algorithmic models. Both map input conditions to output conditions, but
+the difference lies is in the approach we take to create \(f\).
+Algorithmic models aim to construct \(f\) as an algorithm which
+accurately predicts output conditions based on input conditions. The
+algorithm tends to have little relation to the mechanisms producing the
+data being modeled, but rather is designed with the aim of accurately
+finding patterns in data---methods of this type tend to receive the
+somewhat ambiguous label ``machine learning''. These models can be
+exceptionally useful for prediction, but this comes at the cost that
+they do not reliably provide information about the mechanisms producing
+the data.
+
+In contrast, data models attempts to model the way in which the data is
+generated. We can further partition data models into statistical models
+and process models. The vast majority of scientific studies use
+statistical models (@breiman\_statistical\_2001), which conceptualize
+\(f\) by assuming the output of \(f\) is some combination of its input
+conditions, \(x_i\), each of which is drawn from an assumed distribution
+for each observation. Models of this form have seen extensive use
+because they are easily generalizable and can be applied to a variety of
+problems. Further, by assuming that measured quantities follow
+distributions that we can describe analytically, we are able to compose
+likelihood functions which can then be used to fit models to data using
+a variety of methods, both frequentist and Bayesian. In contrast,
+process models aim to construct \(f\) to represent the hypothesized
+mechanism that produces the data. This can be done in a variety of
+methods---for example, \(f\) could be written as a stochastic
+differential equation, as we will do in the next chapter, or \(f\) could
+be described as a set of properties between agents in an
+individual-based model. Process models can vary in the degree to which
+they represent the fidelity of the actual process based on the scale and
+detail of representation considered. However, this comes with the cost
+that, in general, process models are much more difficult to fit data to
+than statistical models. However, recent advances in Approximate
+Bayesian Computation (@beaumont\_approximate\_2010) make it feasible to
+fit data to complex simulation models which cannot be described by an
+analytic likelihood function. This can give us a way to test between
+mechanistic process models, given that we have a reasonably small number
+of potential mechanisms we want to test.
+
+Now, we turn to the history of spatial models in ecology to survey the
+the ways in which ecological process models have conceptualized space.
+
+\hypertarget{a-history-of-the-construction-of-space-in-ecology}{%
+\subsection{A History of the Construction of Space in
+Ecology}\label{a-history-of-the-construction-of-space-in-ecology}}
+
+\hypertarget{the-theory-of-island-biogeography}{%
+\subsubsection{The Theory of Island
+Biogeography}\label{the-theory-of-island-biogeography}}
+
+Nearly all of landscape ecology has its roots in the Theory of Island
+Biogeography (TIBG, @macarthur\_theory\_1967). The TIBG modeled a system
+of oceanic islands, each with a different size, corresponding to
+resource levels. The primary motivation of the theory was to provide a
+mechanistic explanation of the species area relationship, and so the
+core of the TIBG relates the spatial structure of the islandscape---the
+size of each island and the distances between them---to observed
+patterns of species richness.
+
+Although the TIBG was conceptualized for terrestrial communities on
+oceanic islands, it quickly was applied elsewhere under the assumption
+that many human-altered landscapes are well-approximated by an island
+structure---isolated regions of homogeneous landscape separated by
+inhabitable matrix (@haila\_conceptual\_2002, @macarthur\_theory\_1967,
+@preston\_canonical\_1962). The analogy between islands and subdivided,
+patchy landscapes was first made by Preston (1962), and is briefly
+invoked in the TIBG. However, this analogy went on to strongly influence
+how landscape ecologists modeled space in terrestrial landscapes in the
+future. Traces of the central ideas of the TIBG---area as a proxy for
+resource availability, richness as a product of an equilibrium between
+colonization and extinction, that patches are internally
+homogenous---can be seen all throughout the models of landscape ecology
+that followed.
+
+\hypertarget{metapopulation-theory}{%
+\subsubsection{Metapopulation Theory}\label{metapopulation-theory}}
+
+\hypertarget{classical-metapopulation-theory}{%
+\paragraph{Classical Metapopulation
+Theory}\label{classical-metapopulation-theory}}
+
+The metapopulation framework was introduced by Levins (1969)---who
+originally defined a metapopulation as `a population of populations'.
+Metapopulation theory, like the TIBG, considers the dynamics of
+occupancy due to colonization or extinction. Levins' model considers a
+system of infinite populations, each with a fixed probability of
+colonization, \(c\), or local extinction, \(e\) , each generation. In
+this formulation, the proportion of populations occupied at a given
+time, \(p\), is modeled as as
+
+\[\frac{dp}{dt} = cp(1-p)-ep\]
+
+From this, we can derive that the system will persist, i.e.~\(p \to 1\),
+if and only if \(\frac{c}{e} >1\), and \(p\to0\) otherwise
+(@levins\_demographic\_1969). The aim of this model was not to be used
+to predict the consequences of subdivision in an empirical
+system---rather, this is what Okubo (1978) calls a ``toy model'': a way
+of examining the consequences imposed by an oversimplified version of
+the dynamics in question. In reality, stochasticity in
+colonization/extinction events cause real systems to diverge from the
+deterministic predictions made by Levins' model, and the spatially
+implicit structure of this model made it difficult to assess the
+influence of landscape structure or use for prediction in a real
+landscape.
+
+\hypertarget{modern-metapopulation-theory}{%
+\paragraph{Modern Metapopulation
+Theory}\label{modern-metapopulation-theory}}
+
+Metapopulation theory was more formally applied to fragmented landscapes
+by Hanski and Ovaskainen (@hanski\_practical\_1994,
+@hanski\_metapopulation\_2000), who adapted Levins' framework of a
+network of occupied/unoccupied patches, and restricted it to a finite
+number of populations with spatially-explicit locations, each with a
+unique probability of colonization arising from the metapopulation's
+spatial structure. This introduces more parameters---each population
+\(i\) has a spatial coordinate in \(\mathbb{R}^2\), \((x_i, y_i)\), and
+an area associated with it, \(A_i\). Here, like in the TIBG, area is
+still a proxy for the resource availability in that patch, as the
+probability of a patch going extinct in a generation is is inversely
+proportional to its area, and directly proportional to its ability to
+serve as a source for colonizers. Similarly, in a departure from Levins'
+model, the probability of an unoccupied patch getting colonized during
+any timestep is inversely proportional to how far away it is from
+occupied patches. This relationship of isolation-by-distance (IBD),
+called the dispersal kernel, was initially modeled as an exponential
+(@hanski\_practical\_1994), \(f(d_{ij})= \ e^{-\alpha d_{ij}}\), which
+has seen extensive use since.
+
+What made Hanski and Ovaskainen's theory capable of interfacing with
+real data is their use of incidence-function models (IFMs,
+@hanski\_practical\_1994). The value of the incidence function \(J_i\),
+for any population \(i\), is the long run proportion of time that
+population \(i\) is occupied. From this, one can compute the probability
+of changing from any state of occupancy to any other state, which
+provides us with a likelihood function to estimate parameters from
+occupancy data in real systems. Much like the TIBG, this is based on the
+assumption that when the data we collect is indicative of a system that
+has approached its long-term equilibrium state. This, however, has
+enabled the extensive use of IFMs in conservation
+(@risk\_robust-design\_2011, @macpherson\_metapopulation\_2011,
+@vos\_incidence\_2000, @hanski\_quantitative\_1996). More recent
+metapopulation studies use so-called Dynamical Models
+(@fletcher\_spatial\_2019), which model occupancy in space as a
+Bernoulli distribution, with weighted parameters to account for
+isolation-by-distance/resistance, environmental variance, or other
+covariates.
+
+\hypertarget{sources-and-sinks}{%
+\paragraph{Sources and Sinks}\label{sources-and-sinks}}
+
+Another theoretical output of metapopulation theory is the conceptual
+framework of sources and sinks. Source-sink metapopulations emerged from
+the theory of birth-immigration-death-emigration (BIDE) demographic
+models (@pulliam\_sources\_1988), the idea being that different
+locations in space have differing levels of resource availability, and
+that as a result, have different expected values of each of these
+parameters every generation. Populations with more births than deaths
+and more emigrants than immigrants are `sources', populations with
+higher deaths than births are `sinks'. This conceptual framework has
+since spread outside population ecology, and gone on to be influential
+across metacommunity (@mouquet\_community\_2003), population genetics
+(@gaggiotti\_population\_1996), and coevolutionary theory
+(@thompson\_coevolution\_2002).
+
+Within both the metapopulation framework and the TIBG, it is assumed
+that there isn't heterogeneity within patches, and that the region
+between habitats is entirely inhospitable. However, these assumptions
+would later be challenged by the increasing availability of data that
+allowed ecologists to think about space continuously.
+
+\hypertarget{continuous-space-lattice-models-and-the-matrix}{%
+\subsubsection{Continuous Space, Lattice Models, and the
+Matrix}\label{continuous-space-lattice-models-and-the-matrix}}
+
+One natural limit of the above models is that ecological processes do
+not occur in discrete space. Although continuous-space models have long
+been used in theoretical studies (@haldane\_theory\_1948,
+@hastings\_global\_1978, Okubo 1978), the difficulty inherent to both
+collecting `continuous' spatial data, plus the increased mathematical
+complexity induced by considering processes in continuous space, long
+made such models impractical to apply to an empirical system.
+
+This changed due to two major developments: the increased availability
+of remotely sensed land cover data and the onset of computational power
+to feasibly run simulation models that well-approximate continuous
+space. The advent of remote sensing imagery enabled construction of
+global land-cover maps, which function as approximations of continuous
+space on large scales. In response, landscape research focused on
+studying various aspects of patch geometry in raster data
+(@mcgarigal\_fragstats\_1995).
+
+This, plus the continued growth of computational power, paved the way
+for models using rasters to approximate continuous space, meaning we
+were no longer limited in our ability to model continuous space with the
+tools of analytical math. Lattice-based simulation models have been
+applied to many questions, including the theory of percolation in
+habitat loss (@bascompte\_habitat\_1996), evolutionary rescue models
+(@boeye\_more\_2013), epidemiology models (@jeltsch\_pattern\_1997),
+coevolutionary models (@sisterson\_coevolution\_2004), adaptive
+radiation (@gavrilets\_dynamic\_2005), predator-prey models
+(@matsuda\_statistical\_1992), and so on.
+
+These developments led us to more complex conceptual models of landscape
+structure. The relationship of different land cover types in relation to
+one another marks a significant shift away from the habitat is either
+suitable-or-unsuitable binary that has dominated landscape ecology for
+many years, and to other models including the so-called mosaic model
+which considers all elements of the matrix as important to understanding
+landscape structure (Fortin \& Fletcher 2019, Wiens 1995).
+
+\hypertarget{resistance-connectivity-and-spatial-graphs}{%
+\subsubsection{Resistance, Connectivity, and Spatial
+Graphs}\label{resistance-connectivity-and-spatial-graphs}}
+
+The field of landscape genetics, introduced by Manel et al.~(2003), has
+sought to synthesize an understanding of landscape structure with
+population genetic models using the recent availability of
+next-generation sequencing technology. This field has contributed many
+conceptual frameworks to the study of space, including idea of
+isolation-by-resistance (IBR, @mcrae\_isolation\_2006,
+@mcrae\_using\_2008). IBR argues that different landscape features,
+typically represented as different land cover types, impose different
+strengths of ``resistance'' to dispersal or movement. Each cell in a
+raster landscape, called a resistance surface, is modeled as a resistor,
+and the minimum resistance path between any two points in the raster can
+be estimated using circuit theory (@spear\_use\_2010). More recently
+models of gene flow have been used to validate resistance surfaces
+(@mateo-sanchez\_estimating\_2015), and construct them from from a
+combination of genetic and landscape data
+(@peterman\_resistancega\_2018).
+
+The concept of landscape connectivity has seen much recent interest in
+conservation ecology (@robertson\_isolating\_2018,
+@mitchell\_linking\_2013, @carroll\_use\_2012,
+@krosby\_ecological\_2010). The effect of connectivity on ecological
+processes has been clear since the concept was first introduced
+(@turner\_landscape\_1989, @taylor\_connectivity\_1993), however, the
+theory of resistance surfaces has proven an invaluable tool in
+quantifying connectivity (@kool\_population\_2013). The use of spatial
+graphs in connectivity models has also seen recent interest, as they
+provide a generalizable framework to study pattern and process in
+landscapes across different scales (@chubaty\_r\_2020,
+@dale\_graphs\_2010, @minor\_graph-theory\_2008,
+@urban\_landscape\_2001).
+
+\hypertarget{conclusion}{%
+\subsection{Conclusion}\label{conclusion}}
+
+Here, we have focused on the various ways that spatial models have been
+constructed in ecology---however, as mentioned earlier, scientists use
+models to serve a number of different functions, and different ways of
+modeling space have different utility in different circumstances. In the
+next chapter, we restrict our focus to simulation models. We suggest
+that when planning efforts to restore landscape connectivity, there is
+immense value in using simulation models to predict the effects of
+potential corridors on functional connectivity
+(@epperson\_utility\_2010).
+
+\pagebreak

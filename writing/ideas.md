@@ -8,5 +8,6 @@
 - Estimate MTE from data
 - Examine the changes in MTE do to potential corridors
     - How do you impose a constraint on what changes can be made to the dispersal potential?
+- Estimate alpha for a given dispersal kernel based on metapopulation dynamics data
 
-
+- fractal scale of a landscape -- at what point do we see heterogeneity

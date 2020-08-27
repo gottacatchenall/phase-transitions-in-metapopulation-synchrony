@@ -3,6 +3,8 @@ using StatsBase, Distributions, DataFrames, CSV, ProgressMeter, LinearAlgebra, D
 wd = pwd()
 cd("/home/michael/phase_transitions_in_metapopulation_synchrony/src")
 
+include("./types.jl")
+include("./Parameters.jl")
 include("./Metapopulation.jl")
 include("./DispersalKernel.jl")
 include("./DispersalPotential.jl")
@@ -13,5 +15,11 @@ include("./StochasticLogisticWDiffusion.jl")
 include("./SummaryStats.jl")
 include("./Vis.jl")
 
+
+# Source IBM stuff, maybe should be packaged as a module in the future
+include("./IBM/types.jl")
+include("./IBM/IBMParameters.jl")
+include("./IBM/IBM.jl")
+include("./IBM/PoissonWRandomDispersal.jl")
 
 cd(wd)

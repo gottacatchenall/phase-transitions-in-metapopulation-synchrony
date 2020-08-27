@@ -1,0 +1,122 @@
+\documentclass[]{article}
+\usepackage{caption}
+\usepackage{tocloft}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+\usepackage[left=1.5in,right=1.5in]{geometry}
+\usepackage{float}
+\floatplacement{figure}{h}
+
+\usepackage{sectsty}
+\usepackage[normalem]{ulem}
+\sectionfont{\rmfamily\bfseries\large}
+\subsectionfont{\rmfamily\bfseries\centering\upshape\normalsize}
+\subsubsectionfont{\rmfamily\itshape\centering\normalsize}
+
+\fontsize 12
+\usepackage{hyperref}
+\usepackage{lineno}
+\linenumbers
+\usepackage[font={footnotesize,sf}]{caption}
+\usepackage{siunitx}
+
+\usepackage{setspace}
+\linespread{1.5}
+
+\raggedbottom
+
+\usepackage{titling}
+\pretitle{\begin{flushleft}\Large\bfseries}
+\posttitle{\end{flushleft}}
+\preauthor{\begin{flushleft}\large}
+\postauthor{\end{flushleft}}
+\predate{\begin{flushleft}\large}
+\postdate{\end{flushleft}}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{  \nouppercase  \leftmark}
+\rhead{\thepage}
+\cfoot{}
+
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+\usepackage{authblk}
+
+\title{Phase Transitions in Landscape Connectivity}
+\author[1]{M.D. Catchen}
+\author[2]{S.M. Flaxman}
+\affil[1]{\small{Department of Ecology and Evolutionary Biology, University of Colorado at Boulder}}
+\affil[2]{\small{Department of Biology, McGill University}}
+\date{\today}
+
+
+\usepackage[square, numbers]{natbib}
+\bibliographystyle{unsrtnat}
+\begin{document}
+\maketitle
+\begin{abstract}
+
+dang ol absrtact here
+
+\end{abstract}
+\clearpage
+
+\section{Introduction}
+
+Life on Earth takes on an endless diversity of forms.
+Yet, the characteristics that define ‘life’ impose parameters on the properties that biological entities must exhibit, and constraints on how these entities can change over time.
+These are the fundamental principles of evolution and ecology—entities that reproduce themselves more than average become more frequent, there is a limit on resources, and so on.
+Over the billions of years life has been on this planet, these forces have produced an astonishing diversity of forms and functions.
+The forces that drive evolutionary and ecological processes do not occur on a single scale---they emerge out of the interactions that occur across all levels of spatial and temporal biological organization \cite{levin_problem_1992}.
+
+Ecosystems are quintessential complex systems.
+Ecological processes are inherently the product of interactions across all scales of biological organization, from the interactions between electrons that drive biochemical processes, to interactions between individual cells that constitute multicellular life, to the interactions between separate organisms in population ecology, to interactions between species in community ecology, to interactions between biogeographical patterns and biosphere level forces like climate \cite{levin_problem_1992}.
+This process of \textit{emergence}, by which parts come together to form a whole with properties that don't exist among the individual parts, has been studied across a wide variety of disciplines \cite{manrubia_emergence_2004)} and is a ubiquitous phenomenon in complex systems.
+
+One potential cause of emergent behavior in complex systems is \textit{synchrony} among individual parts. When many independent parts come together to act as a whole, their dynamics become synchronized.
+This behavior is ubiquitous in biological systems across all scale of organization.
+From collections of cells acting together: the heart beating in rhythm \cite{womelsdorf_modulation_2007}, neurons firing in unison \cite{strogatz_sync_2003}---to behavior among organisms: the flash of fireflies \cite{otte_theories_1980} or the migration of birds \cite{spottiswoode_extrapair_2004}---to interactions between organisms: synchrony between abundances of predators and prey, and of phenology (\cite{van_asch_phenology_2007}, \cite{burkle_future_2011}).
+Synchrony, by definition, involves different entities changing over time in the same way. Within ecology, there has long been a focus on spatial synchrony, that is—how does spatial distribution of ecological entities affect whether they change together or separately? \cite{jarillo_spatial_2020, kendall_dispersal_2000, hanski_spatial_1993}.
+This is, in large part, due to the applied importance of understanding the effect of habitat loss on natural populations. Many theoretical studies have shown the two primary factors that develop spatial synchrony across space are dispersal and environmental covariance \cite{ripa_analysing_2000, abbott_does_2007}.
+Within this theory, one maxim that has developed is \textit{Moran's rule}, which states that spatial synchrony is proportional to the covariance in the environmental conditions across space \cite{ranta_synchrony_1995, bjornstad_spatial_1999}.
+
+
+\begin{figure}
+		%Do not try to scale figure in .tex or you loose font size consistency
+	    \centering
+		%The code to input the plot is extremely simple
+		\input{plot_test}
+		%Captions and Labels can be used since this is a figure environment
+		\caption{Sample output from tikzDevice}
+		\label{plot:test}
+	\end{figure}
+
+\clearpage
+{
+\footnotesize
+\bibliography{references}
+}
+
+
+
+\end{document}

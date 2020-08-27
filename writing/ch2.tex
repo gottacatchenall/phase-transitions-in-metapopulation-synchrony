@@ -1,0 +1,794 @@
+\hypertarget{phase-transitions-in-metapopulation-synchrony}{%
+\section{Phase Transitions in Metapopulation
+Synchrony}\label{phase-transitions-in-metapopulation-synchrony}}
+
+\begin{quote}
+\begin{flushright}Nature is a mutable cloud, which is always and never the same.
+
+Ralph Waldo Emerson \end{flushright}
+\end{quote}
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+Ecosystems are quintessential complex systems. Ecological processes are
+inherently the product of interactions across all scales of biological
+organization, from the interactions between electrons that drive
+biochemical processes, to interactions between individual cells that
+constitute multicellular life, to the interactions between separate
+organisms in population ecology, to interactions between species in
+community ecology, to interactions between biogeographical patterns and
+biosphere level forces like climate (@levin\_problem\_1992). This
+process of \emph{emergence}, by which parts come together to form a
+whole with properties that don't exist among the individual parts, has
+been studied across a wide variety of disciplines
+(@manrubia\_emergence\_2004), and is a ubiquitous phenomenon in complex
+systems.
+
+One potential cause of emergent behavior in complex systems is
+\emph{synchrony} among individual parts. When many independent parts
+come together to act as a whole, their dynamics become
+\emph{synchronized}. This behavior is ubiquitous in biological systems
+across all scale of organization. From collections of cells acting
+together: the heart beating in rhythm (@womelsdorf\_modulation\_2007),
+neurons firing in unison (@strogatz\_sync\_2003)---to behavior among
+organisms: the flash of fireflies (@otte\_theories\_1980) or the
+migration of birds (@spottiswoode\_extrapair\_2004)---to interactions
+between organisms: synchrony between abundances of predators and prey,
+and of phenology (@van\_asch\_phenology\_2007, @burkle\_future\_2011).
+Synchrony, by definition, involves different entities changing over time
+in the same way. Within ecology, there has long been a focus on spatial
+synchrony, that is---how does spatial distribution of ecological
+entities affect whether they change together or separately?
+(@jarillo\_spatial\_2020, @kendall\_dispersal\_2000,
+@hanski\_spatial\_1993). This is, in large part, due to the applied
+importance of understanding the effect of habitat loss on natural
+populations. Many theoretical studies have shown the two primary factors
+that develop spatial synchrony across space are dispersal and
+environmental covariance (@ripa\_analysing\_2000, @abbott\_does\_2007).
+Within this theory, one maxim that has developed is \emph{Moran's rule},
+which states that spatial synchrony is proportional to the covariance in
+the environmental conditions across space (@ranta\_synchrony\_1995,
+@bjornstad\_spatial\_1999).
+
+A major goal of conservation has been developing corridors to promote
+landscape connectivity. Most measures of landscape connectivity
+represent \emph{structural} connectivity, meaning quantifying the
+structure of the landscape, rather than \emph{functional} connectivity,
+which measures the connectivity of a given process
+(@kool\_population\_2013, @calabrese\_comparison-shoppers\_2004). Here,
+in order to better understand functional connectivity, we use a
+simulation model to measure how synchrony across space changes as a
+function of landscape structure. We do this by developing a model of
+metapopulation dynamics on spatial graphs, which have long been used to
+model landscape connectivity (@martensen\_spatio-temporal\_2017,
+@albert\_applying\_2017, @urban\_landscape\_2001), and analyze how
+synchrony changes across space using the language of critical
+transitions.
+
+Further, we show that increasing population synchrony reduces the
+variance in the generation-to-generation change in abundance, which is
+central in reducing the probability of metapopulation extinction
+(@lande\_risks\_1993, @lande\_extinction\_1998). This relationship
+suggests that promoting functional landscape connectivity can help
+mediate the probability of extinction for species facing significant
+habitat loss. We suggest using simulation models, such as those
+presented here, to aid in decision making regarding corridor placement.
+
+\hypertarget{what-are-phase-transitions}{%
+\subsection{What are phase
+transitions?}\label{what-are-phase-transitions}}
+
+When does a system change from one state to a different state? Due to
+the rapid changes induced on the planet by human activity, there has
+been recent focus on answering this question in ecology, especially the
+potential for changes in spatial structure to drive transitions between
+alternative stable states. Much of this theory has been aimed at the
+practical problem of being able to predicting the onset of transitions
+from time-series data (@scheffer\_anticipating\_2012,
+@scheffer\_early-warning\_2009). The bulk of the quantitative theory
+used to understand transitions between states is derived from
+statistical mechanics, where it was originally used to study
+phase-transitions in matter. In order to study phase transitions between
+regimes, we must first be clear on what these regimes are. As this
+theory was originally used to describe physical states of matter, the
+original regimes were solid, liquid, gas. However, as our understanding
+of condensed-matter has changed, so has the demarcation of what
+constitutes different states. In reality, the way in which particles
+come together to constitute matter is far more variable than these three
+categories. In such cases the `state' of a collection of particles
+cannot be represented by a single categorical label, and so the theory
+of phase transitions as been adapted to model \emph{continuous} phase
+transitions, where there is no clear demarcation point between different
+states (@sethna\_statistical\_2006). This is useful for us in ecology,
+where the line between alternative ecosystem `states' is even fuzzier.
+
+We can formalize our understanding of phase transitions using the
+language of statistical mechanics. We call the \emph{order parameter}
+some measure of the system's state in space and time. The \emph{control
+parameter}, then, is what causes the change in order parameter. When
+dealing with dynamics that are inherently stochastic, one tool often
+used in statistical mechanics is correlation functions which measure how
+well the order parameter is correlated in both space and time at a
+particular value of the control parameter (@sethna\_statistical\_2006).
+For example, if we consider the population of a species inhabiting a
+landscape, where along the gradient of landscape connectivity, our
+control parameter, does that system go from consisting of one large,
+single, population, to many small, independent populations? We measure
+this qualitative shift from one system to many using \emph{synchrony},
+the correlation in the dynamics of abundance across space.
+
+\pagebreak
+
+\hypertarget{the-model}{%
+\subsection{The Model}\label{the-model}}
+
+Here we present a spatial graph model of landscape connectivity based on
+metapopulation theory (@hanski\_practical\_1994,
+@grilli\_metapopulation\_2015) . We model connectivity as a function of
+a few empirically estimable parameters, and then describe a diffusion
+model of metapopulation dynamics on these spatial graphs. We then
+simulate dynamics across parameters representative of landscape
+connectivity to determine where transitions in the synchrony of
+population dynamics across space occur.
+
+\hypertarget{modeling-landscape-connectivity-with-a-spatial-graph}{%
+\subsubsection{Modeling Landscape Connectivity with a Spatial
+Graph}\label{modeling-landscape-connectivity-with-a-spatial-graph}}
+
+Spatial graphs have long been used to model a system of habitat patches
+(@dale\_graphs\_2010, @minor\_graph-theory\_2008,
+@urban\_landscape\_2001). In figure \ref{concept}, we see a conceptual
+example of how these graphs are constructed from land cover data.
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/concept.png}
+
+\caption{Spatial graph representation of a heterogenous landscape. Panel (a): A raster map of landscape classification, with each land cover type denoted in a different color. Panel (b): The habitat type of interest (green), repreented as a set of contiguous patches. Panel (c): Each patch represented as a node at the patch's centroid. Panel (d): A spatial graph derived from the landscape. }
+
+\label{concept}
+
+\end{figure}
+
+Here we model a system of populations, represented as a vector of
+vertices, \(V\), in a spatial graph \(G=(V,E)\), with edges, \(E\),
+representing dispersal between populations. When considering the process
+of metapopulation dynamics, we choose to model landscape connectivity as
+a combination of two different factors: the probability than any
+individual migrates during its lifetime, \(p_m\), and the conditional
+distribution over spatial nodes of where an individual goes, given that
+it migrates, \(P(V_j|V_i)\), which we call the dispersal potential.
+
+We can model the dispersal potential using a few methods. In empirical
+systems, this can be estimated with resistance surfaces, which provide
+relative weights of the difficulty of migration between points on a
+raster of land-cover type (@spear\_use\_2010). Theoretically, we model
+the dispersal potential using isolation-by-distance (IBD). The relative
+probability of dispersal between \(V_i\) to \(V_j\) is inversely
+proportional to the distance between them, \(d_{ij}\), and the strength
+of the isolation-by-distance relationship, \(\alpha\). We call the
+functional form of this relationship, \(f(d_{ij}, \alpha)\), the
+dispersal kernel. Here we consider two different types (partially after
+Grilli et al.~(2015)), the
+exponential, \(f(d_{ij}, \alpha)=e^{-\alpha d_{ij}}\), and
+Gaussian, \(f(d_{ij}, \alpha)=e^{-\alpha^2 d_{ij}^2}\), kernels. These
+functional forms have long been considered as models of dispersal
+kernels in both theory and empirical work (@hanski\_practical\_1994,
+@grilli\_metapopulation\_2015).
+
+To convert this to a probability distribution \(P(V_j|V_i)\), we
+normalize:
+
+\[P(V_j|V_i)=\frac{f(d_{ij}, \alpha)}{\sum_k f(d_{ik},\alpha)}\]
+
+Note that if \(\alpha=0\), then the value of both exponential and
+Gaussian kernels is the same for all pairs of populations, and therefore
+the dispersal potential is a uniform distribution. In figure \ref{mp},
+we can see spatial graphs plotted representing the same set of
+populations across differing values.
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/mp.png}
+
+\caption{The same set of populations plotted in the x-y plane, represented as blue points, across various value of isolation-by-distance strength, represented by (columns), and dispersal kernel type (rows). Edge width and opacity are proportional to the dispersal kernel between those two populations, $P(V_j | V_i)$.}
+
+\label{mp}
+
+\end{figure}
+
+\hypertarget{local-dynamics}{%
+\subsubsection{Local Dynamics}\label{local-dynamics}}
+
+We model population dynamics within each local population \(V_i\) using
+the stochastic logistic model. The dynamics of the number of individuals
+in population \(V_i\) are described by the stochastic differential
+equation (SDE)
+
+\[dN_i=\lambda_i N_i \big(1 - \frac{N_i}{K_i}\big)dt+\sigma_pK_idW\]
+
+Here, \(N_i\) is the abundance at population \(i\), \(\lambda_i\) is the
+strength of density dependence in that population, and \(K_i\) is the
+carrying capacity of \(V_i\). \(\sigma_p\) represents that standard
+deviation in abundance due to local stochasticity as a proportion of
+\(K_i\). Here \(\sigma_p\) represents an amalgamation of all factors
+contributing to local stochasticity in population dynamics, although it
+should be noted that the relative contribution of different factors to
+local stochasticity can drive significant variation in dynamics
+(@melbourne\_extinction\_2008). For the sake of reducing parameter
+space, here we consider all populations as having the same \(\lambda_i\)
+and \(K_i\), however, future work could include exploring the
+source-sink dynamics in this system by varying intrinsic growth rates
+and carrying capacities across populations.
+
+We use an SDE representation because they have been used to study phase
+transitions in stochastic systems before (@brock\_early\_2012,
+@kuehn\_mathematical\_2011), and they have many nice properties. SDEs
+have been used to study extinction dynamics before, as it is relatively
+straightforward to compute the mean time until extinction (MTE) using
+the Kolmogorov Backward Equation (@lande\_stochastic\_2003).
+
+\hypertarget{diffusion-on-spatial-graphs}{%
+\subsubsection{Diffusion on Spatial
+Graphs}\label{diffusion-on-spatial-graphs}}
+
+When we model a landscape with a spatial graph, we have to decide how
+different nodes affect one another. The processes that connect
+landscapes are inherently stochastic. The probability that an individual
+migrates within its lifetime, \(p_m\), and where it goes, \(P(V_j|V_i)\)
+, are both stochastic processes. Under some conditions, we can
+effectively model stochastic dynamics across space using diffusion
+models. In essence, a diffusion model assumes that at each timestep the
+system will change according to the expected value of stochastic
+dispersal. Diffusion models have seen widespread use in ecology and
+other fields (@ovaskainen\_empirical\_2008,
+@holmes\_partial-differential\_1994, @okubo\_diffusion\_2011).
+
+Given our dispersal potential \(P(V_j|V_i)\), we can define the
+diffusion matrix \(\Phi\) as
+
+\[\Phi_{ij} = \begin{cases} 1 - p_m \quad\quad &\text{if}\ i = j \\ P(V_j|V_i)p_m & \text{if}\ i \neq j\end{cases}\]
+
+where \(\Phi_{ij}\) represents the probability that any individual born
+in \(V_i\) reproduces in \(V_j\).
+
+Now we move to considering the dynamics of the abundance of the
+population at \(V_i\), denoted \(N_i\). We can now represent the
+dynamics due to diffusion of this system as
+
+\[\dot{N_i}=(1-p_m)N_i+ \sum_j p_mP(V_j|V_i)N_j\]
+
+In matrix notation, we can represent this diffusion model as
+
+\[\frac{d\vec{N}}{dt}=\Phi^T\vec{N}\]
+
+We can then combine this with local dynamics as a reaction-diffusion
+model,
+
+\[\frac{d\vec{N}}{dt} = g(\Phi^T \vec{N})\]
+
+where \(g(x)\) is a function that represents the hypothesized mechanism
+of how the ecological measurement evolves locally.
+
+In principle, \(g(x)\) can represent any ecological process of
+interest---for example if the state space of \(x\) is allelic
+frequencies, \(g(x)\) could describe genetic drift, or if \(x\)
+represents community compositions across space, \(g(x)\) could describe
+competition between species as a function of environmental conditions,
+coevolutionary states across space, etc. Here, we consider \(g(x)\) to
+be the stochastic logistic model (see previous section). Combining this
+with the diffusion model yields the SDE
+
+\begin{equation} \label{diffusion_model}
+  d \vec{N} = {I} (\Phi^T \vec{N})(\vec{k}-\vec{N}) dt + \sigma_p \vec{k} \ d\vec{W}
+\end{equation}
+
+which will be the primary object of study in this paper.
+
+\hypertarget{measuring-synchrony}{%
+\subsubsection{Measuring Synchrony}\label{measuring-synchrony}}
+
+As described above, measures of correlation in space and time are often
+used in the study of phase transitions. When the order parameter gains
+or loses correlation in space and time is used as an indicator of when a
+system changes qualitative phases. Within the context of ecology, the
+crosscorrelation function, \(CC\), has long been used as a measure of
+synchronous dynamics (@liebhold\_spatial\_2004). Here, with a subdivided
+population, we consider the mean crosscorrelation compared across all
+populations, \({PCC}=\frac{1}{n^2}\sum_{i,j} CC(V_i,V_j)\) . As an
+example, in \ref{async_and_sync}, panel (a) show an example of low PCC,
+and panel (b) shows an example of high PCC.
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/async_and_sync.png}
+
+\caption{The abundance of 5 populations (each in a different color) across time. Panel (a):  These populations show low synchrony, $PCC=0.1$. Panel (b): These populations show high sychrony, $PCC=0.89$ }
+
+\label{async_and_sync}
+
+\end{figure}
+
+\hypertarget{simulating-a-phase-transition-across-a-migration-gradient}{%
+\subsubsection{Simulating a Phase Transition across a Migration
+Gradient}\label{simulating-a-phase-transition-across-a-migration-gradient}}
+
+Now we consider how synchrony changes as a function of \(p_m\). Each run
+consists of the following parameters,
+\(\theta = \{N_p, \lambda, \sigma_p, \vec{K},p_m, \alpha \}\). For each
+unique set of parameters, we run \(50\) replicates across all values of
+\(p_m = \{0.01,0.02,\dots,1.0 \}\). For each replicate, we independently
+draw the location of \(N_p\) populations uniformly in \([0,1]^2\). We
+draw the intial value of abundance for all populations from a uniform
+distribution, \(N_i \sim U(0, K_i)\). We then integrate equation
+\ref{diffusion_model} forward \(500\) timesteps using the
+Euler--Maruyama method with \(\Delta t=0.1\). After integrating forward,
+we compute the crosscorrelation coefficient, \(CC\) for each pair of
+populations \(i \neq j\). Then, we compute the mean pairwise
+crosscorrelation for that replicate, \(PCC\), and start the next
+replicate.
+
+\pagebreak
+
+\hypertarget{phase-transitions-in-synchrony-across-a-migration-gradient}{%
+\subsection{Phase Transitions in Synchrony across a Migration
+Gradient}\label{phase-transitions-in-synchrony-across-a-migration-gradient}}
+
+\hypertarget{synchrony-phase-diagrams}{%
+\subsubsection{Synchrony Phase
+Diagrams}\label{synchrony-phase-diagrams}}
+
+Here, we introduce synchrony transition diagrams. When does the
+equilibrium state of our order parameter, \(\text{PCC}\), change as we
+change our control parameter, \(p_m\)? First, we consider the case of
+only two populations, \(N_p=2\). Here, the dispersal potential,
+\(P(V_j|V_i)\), becomes irrelevant, as the fact that an individual
+migrates means that it migrates to the other
+population---i.e.~\(P(L_2|L_1)=1\) and \(P(L_1|L_2)=1\). Here, then,
+\(p_m\) is the only parameter driving connectivity in the system. How
+does the expected amount of synchrony between the two populations change
+as we change the probability an individual migrates, \(p_m\)? In Figure
+\ref{2pops_across_lambda}, we see \(\text{PCC}\) plotted as a function
+of \(p_m\). Each point represents the mean value of \(\text{PCC}\)
+across 50 replicates. Each panel of figure \ref{2pops_across_lambda} is
+for different strengths of density-dependent regulation, \(\lambda\).
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/2pops_across_lambda.png}
+
+\caption{Each panel is a synchrony transition diagram for differing values of density-dependent regulation, $\lambda$. Each panel considers how mean $PCC$ changes as a function of the probability of migration, $p_m$. Each point represents the mean value of $PCC$ across 50 replicates at that parameter set.}
+
+\label{2pops_across_lambda}
+
+\end{figure}
+
+Each plot in figure \ref{2pops_across_lambda} is a phase transition
+diagram, showing how synchrony changes as a function of migration
+probability. Each show a similar functional form, as we see correlation
+between the two populations maximized near \(p_m=0.5\). Intuitively,
+this maximum makes sense: exchanging 50\% of the individuals between
+populations in each time step leads to a well-mixed metapopulation.
+Furthermore, since there is no local adaptation in this model, a
+migration rate of \(p\) is functionally equivalent to a migration rate
+of \(1 - p\).
+
+We see that this is a continuous, or type-II phase transition---we don't
+reach a point of \(p_m\) where the system suddenly jumps from
+\(\text{PCC}= 0\) to \(\text{PCC}=1\). Instead, we see that the expected
+level of synchrony drops off as we move away from \(p_m=0.5\). Further,
+as we increase \(\lambda\), we see this peak become `narrower', in that
+values near \(p_m = 0.5\) have lower expected \(PCC\) as \(\lambda\)
+gets larger. Why does increasing the strength of density dependent
+regulation, \(\lambda\), narrow the curve? As \(\lambda\) increases,
+values of \(p_m\) that enable in-between levels of synchrony for low
+\(\lambda\) have their moderate synchrony broken down by local
+density-dependent regulation, unless the populations are at a value of
+\(p_m\) such that they synchronized tightly enough that they are both
+experiencing the same force of density-dependent regulation, meaning
+moving either up or down towards \(K_i\), at the same time.
+
+In figure \ref{2pops_across_sigma}, we see transition diagrams for
+\(N_p=2\) across across demographic stochasticity, \(\sigma_p\) .
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/2pops_across_sigma.png}
+
+\caption{Each panel is a synchrony transition diagram for differing values of density-dependent regulation, $\sigma$. Each panel considers how mean $PCC$ changes as a function of the probability of migration, $p_m$. Each point represents the mean value of $PCC$ across 50 replicates at that parameter set.}
+
+\label{2pops_across_sigma}
+
+\end{figure}
+
+Here, we see that amount of demographic stochasticity doesn't
+dramatically alter the shape of the synchrony transition. This leaves us
+with a few questions---why would this phase transition by centered
+around \(p_m = 0.5\)? Here we suggest the following hypothesis: at
+\(p_m=0.5\), the composition of each population at any time is equally
+composed of descendants from each population---this enables even-mixing
+of demographic stochasticity within each population, which maximizes
+synchrony. We make this case further in \emph{Synchrony due to
+Even-Mixing of Local Stochasticity}. Why does the strength of
+density-dependence, \(\lambda\), narrow the region of \(p_m\) where
+synchrony is maximized, but \(\sigma_p\) doesn't? We suggest that this
+is due to the small amount of subdivision present, which we'll examine
+in the next section.
+
+\hypertarget{effects-of-demography-and-landscape-connectivity}{%
+\subsubsection{Effects of Demography and Landscape
+Connectivity}\label{effects-of-demography-and-landscape-connectivity}}
+
+Now, we vary demographic parameters, \(N_p\), \(K\), \(\sigma_p\) , and
+\(\lambda\) , to determine how shifts in demography change the
+functional form of the transition across \(p_m\). In figure
+\ref{subdiv_across_lambda}, we vary the strength of density dependence,
+\(\lambda\), across different numbers of populations, \(N_p\).
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/subdiv_across_lambda.png}
+
+\caption{Each panel is a transition diagram showing $PCC$ across $p_m$ at different combinations of $\lambda$ and $N_p$.}
+
+\label{subdiv_across_lambda}
+
+\end{figure}
+
+Here we see that both \(\lambda\) and \(N_p\) have effects on the
+structure of the curve. Like in the two-population model, increasing
+\(\lambda\) narrows the peak around which \(p_m\) values produce
+synchrony. Let \(m_{max}\) be the value of migration that maximizes
+synchrony. We see that as subdivision, \(N_p\), increases, we see the
+transition curve narrows around increasingly high values of \(m_{max}\).
+This supports with our hypothesis of even-mixing, which we'll explore
+more later. In figure \ref{subdiv_across_lambda}, each color represents
+a different value of isolation-by-distance strength, \(\alpha\). We see
+that changing \(\alpha\) doesn't change the shape of the curve, but
+instead just flattens it---decreasing the maximum value of synchrony
+across the \(p_m\) gradient. This is intuitive---as connectivity
+decreases, it becomes less likely to produce global synchrony at any
+\(p_m\) .
+
+Next we varied the total carrying capacity, \(K\), across different
+numbers of populations, \(n_p\) (Figure \ref{subdiv_across_k}).
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/subdiv_across_k.png}
+
+\caption{Each panel is a transition diagram showing $PCC$ across $p_m$ at different combinations of $K$ and $N_p$.}\label{subdiv_across_k}
+
+\end{figure}
+
+In Figure \ref{subdiv_across_k}, the number of populations has the same
+effect as above, but carrying capacity doesn't alter the shape of this
+curve, which is unsurprising given that our model considers the variance
+of local stochasticity to be a proportion of \(K\).
+
+Finally, we consider shifting \(\sigma_p\). (Figure
+\ref{subdiv_across_sigma}). Here, we see that the magnitude of
+\(\sigma_p\) narrows the curve, as larger amounts of local stochasticity
+drown-out synchrony at values near, but not at, \(m_{max}\). Here we
+observe the same effect of subdivision, and similar narrowing around
+\(m_{max}\) . Unlike in the two-population model, more variability
+locally does mean less synchrony at same migration levels. We suggest
+that this is because increasing subdivision increases the number of
+stochastic demographic events that happen every timestep, which
+inherently increases the variance in the change in abundances during any
+interval.
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/subdiv_across_sigma.png}
+
+\caption{Each panel is a transition diagram showing $PCC$ across $p_m$ at different combinations of $\sigma_p$ and $N_p$.}\label{subdiv_across_sigma}
+
+\end{figure}
+
+Clearly, we see landscape subdivision, represented by \(N_p\), as having
+the most prominent effect on the shape of the transition curve. The more
+landscape subdivision there is, the higher migration has to be to enable
+synchrony. Further, subdivision induces a qualitative shift in the shape
+of this curve, from being only convex, (e.g., figure
+\ref{subdiv_across_sigma}A), to having both concave and convex regions
+(e.g., figure \ref{subdiv_across_sigma}D). As subdivision increases, the
+transition curves exhibit more `critical' behavior, meaning they reach a
+tipping point value of \(p_m\) where synchrony starts to increase very
+suddenly (figure \ref{subdiv_across_sigma}(A-D)).
+
+We next considered how \(\text{PCC}\) changes across both \(p_m\) and
+\(\alpha\) with different dispersal kernels. Figure \ref{kernels} shows
+that the dispersal kernel has significant effects on the region where
+global synchrony is established. This means that different structures of
+resistance features lead to different outcomes in the ability to build
+up global synchrony.
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/kernels.png}
+
+\caption{Phase digram showing $PCC$ across $\alpha$  (x-axis) and $p_m$ (y-axis) for the exponential dispersal kernel (left) and gaussian dispersal kernel (right). }
+
+\label{kernels}
+
+\end{figure}
+
+\hypertarget{synchrony-due-to-even-mixing-of-local-stochasticity}{%
+\subsection{Synchrony due to Even-Mixing of Local
+Stochasticity}\label{synchrony-due-to-even-mixing-of-local-stochasticity}}
+
+The Moran effect claims that the synchrony of populations across space
+in proportional to the covariance of their environmental conditions
+(@ranta\_synchrony\_1995, @bjornstad\_spatial\_1999). Here we make the
+case that what drives synchrony across space is the `even-mixing' of
+local stochasticity. As is evidenced by figures \ref{2pops_across_sigma}
+and \ref{2pops_across_lambda}, in a two population scenario, synchrony
+is maximized near \(p_m =0.5\). We suggest that this is because the
+population at any given time step is an even mix of descendants from
+each population, and thereby averages out the demographic stochasticity
+across all populations, leading to synchronized dynamics, as the change
+in each population at every time is the averaged value of local change
+across all populations. If this were the case, we would expect the value
+of migration which maximizes synchrony,
+\(m_{max}=arg max_{p_{m}} PCC(p_m)\) to be the value such that the
+probability of an individual reproduces in population \(j\) given they
+were born in population \(i\), \(\Phi_{ij}\), to be equal for all \(j\).
+In the case that \(P(V_j | V_i)\) is uniform, i.e.~\(\alpha = 0\), this
+would mean setting \(p_m = m_{max}=1 − \frac{1}{N_p}\) would result in a
+\(\Phi_{ij}\) that evenly mixes indivudals each timestep. In figure
+\ref{even_mixing}, we can see this function is plotted in black against
+simulated data points (purple).
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/even_mixing.png}
+
+\caption{Each panel represents number of populations, $N_p$ on the x-axis, and $p_m$  on the y-axis. The value of $p_m$ which maximizes syncrhony across a $p_m$ gradient, with $50$ replicates at each value of $p_m$, is represented in purple. The line in black represents even mixing,  $m_{max}=1 - \frac{1}{N_p}$. Each panel represents a different strength of isolation-by-distance, $\alpha$.}
+
+\label{even_mixing}
+
+\end{figure}
+
+This indicates that synchrony is enabled when local stochasticity is
+averaged out by dispersal. The Moran effect suggests that population
+synchrony across space is proportional to covariance in environment.
+However, dispersal can substitute for covariance in the environment when
+it results in the admixture of individuals from populations in
+proportion to the environmental covariance. Further, we see in
+\ref{even_mixing} that increasing the strength of isolation-by-distance
+this relationship weaker, as different subsets of the total set of
+populations form synchronized dynamics (see the final section,
+\emph{Mesopopulation}).
+
+\hypertarget{synchrony-and-variance}{%
+\subsubsection{Synchrony and Variance}\label{synchrony-and-variance}}
+
+Consider the change in size of population \(i\) size across all
+timesteps, \(\Delta_i = [\Delta_i(t) - \Delta_i(t-1)] \ \forall \ t\).
+How does the global synchrony of the metapopulation change the variance
+of this distribution?
+
+In figure \ref{variance_over_m}, we see how the variance of \(\Delta\),
+\(V(\Delta)\), changes with \(p_m\). We see that the overall variance in
+the change in abundance over time is reduced as \(p_m\) increases, in a
+pattern strikingly similar to the way \(PCC\) changes over \(p_m\). In
+panel (b), we see that \(V(\Delta)\) is negatively correlated with
+\(PCC\), and that this relationship becomes stronger as \(\sigma_p\)
+increases. This indicates that synchrony reduces the values of
+\(V(\Delta)\). Now consider the value of \(p_m\) which minimizes
+\(V(\Delta)\). How correlated is this with the value of \(p_m\) that
+maximizes synchrony, \(m_{crit}\) ? Consider figure
+\ref{delta_pcc_corr}.
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/variance_over_m.png}
+
+\caption{Panel (a): The variance in the change in abundance at each timestep, $V\Delta$, plotted across $p_m$. Each point represents $50$ replicates at that parameter set. Different colors indicate different levels of demographic stochasticity, $\sigma_p$. Panel (b): The value of $V(\Delta)$ (y-axis) and $PCC$ (x-axis) for each set of $50$ replicates. Different colors indicate different levels of demographic stochasticity, $\sigma_p$.  }
+
+\label{variance_over_m}
+
+\end{figure}
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/delta_pcc_corr.png}
+
+\caption{The value of $p_m$ which minimizes the variance of $\Delta$, $V(\Delta)$ (x-axis) and the value of $p_m$ which maximizes $PCC$, (y-axis). Each point represents the value of $p_m$ which maximizes synchrony, $m_{max}$,  across $p_m = \{0.01, 0.02, \dots, 1\}$ , at different $N_p=2,3,\dots,25$. The black line is $y=x$.}
+
+\label{delta_pcc_corr}
+
+\end{figure}
+
+We know from theory that reducing that variance of \(N_t - N_{t-1}\)
+reduces extinction risk (@lande\_stochastic\_2003,
+@melbourne\_extinction\_2008). It has been suggested in the past the
+spatial synchrony can increase the risk of extinction
+(@matter\_local\_2010, @heino\_synchronous\_1997). However, our evidence
+here runs counter to that claim---increasing synchrony decreases the
+variance of the change in abundance over time, \(V(\Delta)\), which is
+key in maximizing the probability of a populations persistence
+(@lande\_stochastic\_2003). We suggest that prior studies are flawed in
+that they do not consider that the advent of synchrony reduces the
+probability of catastrophes, or high variance in \(\Delta\).
+
+\pagebreak
+
+\hypertarget{the-balance-of-migration-and-demographic-stochasticity}{%
+\subsection{The Balance of Migration and Demographic
+Stochasticity}\label{the-balance-of-migration-and-demographic-stochasticity}}
+
+The question remains---does this diffusion model accurately describe the
+actual dynamics of dispersal in ecological systems? Dispersal is a
+stochastic process, and diffusion assumes that each time step, the
+dispersal between pops in the expected value of that process. Here we
+present a method for using our representation of landscape connectivity
+to simulate stochastic dispersal, and compare the stochastic dispersal
+model to the diffusion model.
+
+\hypertarget{stochastic-dispersal-model}{%
+\subsubsection{Stochastic Dispersal
+Model}\label{stochastic-dispersal-model}}
+
+We use the same construction of landscape connectivity in the random
+dispersal model as the diffusion model---that is that each individual
+migrates from its original population with probability \(P(m)\), and the
+conditional distribution of where migrations go, \(P(V_j|V_i)\).
+However, rather than using fixed coefficients, \(\Phi_{ij}\), to
+represent dispersal, each generation we draw the number of total
+migrations from population \(i\), \(N_{mi}\), from a Binomial
+distribution, \(N_{mi} \sim \text{Binomial}(N_i,p_m)\). Then, for each
+migrant \(\{1,2,N_{mi}\}\), the population \(j\) the migrant goes is
+drawn directly from the distribution \(P(V_j|V_i)\)
+
+\hypertarget{diffusion-vs.-stochastic-model}{%
+\subsubsection{Diffusion vs.~Stochastic
+Model}\label{diffusion-vs.-stochastic-model}}
+
+First we consider the difference in synchrony transitions across a
+migration gradient between using stochastic migration (\emph{Stochastic
+Dispersal Model} above) vs.~the diffusion model (equation
+\ref{diffusion_model}). Figure \ref{stoch_vs_determ_grid} shows phase
+transition curves for both the diffusion (dark blue) and stochastic
+(light blue) models across different values of \(N_p\) and \(\sigma_p\).
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/stoch_vs_determ_grid.png}
+
+\caption{Each panel shows a phase transition curves across $p_m$. The top row has $N_p=2$ and the bottom row has $N_p=5$. Columns correspond to different values of demographic stochasticity, $\sigma_p$. }
+
+\label{stoch_vs_determ_grid}
+
+\end{figure}
+
+We see that as of demographic stochasticity, \(\sigma_p\), increases,
+the difference in PCC between the deterministic model and the stochastic
+model decreases. This is evident of a transition in which stochastic
+mechanism, demographic stochasticity or dispersal stochasticity, is
+driving the variation between populations at any fixed time.
+
+In cases where the amount of demographic stochasticity is low (Figure
+\ref{stoch_vs_determ_grid}A), migration events are the primary source of
+the variability in the size of each population over time. When we model
+dispersal deterministically, there is no variability in migration each
+timestep. So, there is more correlation across populations in the
+deterministic than the stochastic model, where migration events occur
+according to Monte Carlo sampling. However, as we increase the amount of
+demographic stochasticity, \(\sigma_p\), we reach a point where the
+variability in the abundance of each population over time is dominated
+by demographic stochasticity within populations, as opposed to migration
+events. When demographic stochasticity is the primary source of
+variance, migration between populations, even if it is not distributed
+exactly according to the dispersal potential at each time point, spreads
+this stochasticity out across all populations. When migration
+stochasticity is the primary source of variance, the abundances at each
+population \(i\) are stable, except for the variance induced by
+immigration and emigration events.
+
+Figure \ref{stoch_vs_determ_surface} show that beyond some threshold
+level of demographic stochasticity, both the deterministic and
+stochastic dispersal model can be used to understand the effects of
+dispersal and landscape structure on correlation between dynamics as the
+temporal variance that would `break down' correlations between
+abundances is dominated by demography rather than the stochastic nature
+of migration. We can better understand this transitions using the phase
+diagram in Figure \ref{stoch_vs_determ_surface}b.
+
+\begin{figure}[h]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/stoch_vs_determ_surface.png}
+
+\caption{(a): Phase transition diagram across $\sigma_p$ (x-axis) and $p_m$ (y-axis). Each cell represents the difference in mean PCC across $200$ replicates of both the stochastic dispersal and diffusion model. Labeled contour lines are in white. (b): The same phase transition diagram as (a), with regimes labeled. Note the logarithmic scale on the x-axes on both panels.}
+
+\label{stoch_vs_determ_surface}
+
+\end{figure}
+
+\pagebreak
+
+Figure \ref{stoch_vs_determ_surface} shows different two regimes---one
+where the stochastic and diffusion model make the same predictions, and
+one where they don't, highlighted in figure
+\ref{stoch_vs_determ_surface}b. This indicates that as long as
+demogaphic stochasticity is larger than \(\sigma_p = 0.05\), the
+diffusion model and stochastic dispersal model make the same predictions
+about metapopulation synchrony. In the migration dominated regime,
+building up high synchrony isn't possible at any \(p_m\). However, in
+the `demographic stochasticity' region, the that stochastic migration
+and diffusion models make the same prediction, and develop the synchrony
+transitions we see in the previous section.
+
+\hypertarget{the-mesopopulation}{%
+\subsection{The Mesopopulation}\label{the-mesopopulation}}
+
+What does it mean biologically that this is a continuous phase
+transition? When we increase the strength of isolation-by-distance, the
+system does not collapse from one unifed whole to \(N_p\)
+subdivisions---instead, synchronous dynamics form within subsets of the
+total set of populations. In figure \ref{mesopop} we see the same
+metapopulation plotted across varying values of isolation-by-distance,
+\(\alpha\).
+
+\begin{figure}[H]
+
+\includegraphics[width=15cm]{/Users/michael/Drive/thesis/figures/mesopop.png}
+
+\caption{Each panel (top, middle, bottom) represents the same set of $N_p=5$ populations. On the left, the population is plotted in the $x-y$ plane, with edge opacity and width corresponding the value of the dispersal potential $P(V_j | V_i)$. On the right is a set of pairwise correlation coefficient plots. Here, each point represents the mean value of crosscorrelation between those specific populations across $50$ replicates. Each panel represents different values of isolation-by-distance, $\alpha$.  }
+
+\label{mesopop}
+
+\end{figure}
+
+At \(\alpha=0\), where dispersal is uniform, each pair of populations
+shows a synchrony transition diagram that is identical, and we could
+qualitatively say that this system functions as a whole.
+
+As we increase \(\alpha\), (figure \ref{mesopop}b) we see that
+populations \(4\) and \(5\) form a system between themselves, where
+synchrony between those two populations is maximized near \(p_m=0.5\),
+while the synchrony values between populations \(4\) and \(5\) with
+populations \(1\), \(2\), and \(3\) moves toward \(PCC =0\). Meanwhile,
+populations \(1\), \(2\), and \(3\) form their own system with
+synchronous dynamics maximized at \(p_m = 1-\frac{1}{3}= \frac{2}{3}\),
+as we would expect in a \(3\)-population system.
+
+At \(\alpha = 15\), figure \ref{mesopop}b, these dynamics solidify, and
+populations \(4\) and \(5\) form a single, dual-synchronized system, and
+\(1\), \(2\) and \(3\) form a single \(3\)-population system.
+Understanding how shifts in landscape connectivity cause whole system of
+populations to break down into several mesopopulations, systems of that
+form a unity through synchronized dynamics within the whole, has
+important applied context. In some conservation scenarios, developing
+corridors to connect these clusters could have significant benefits to
+biodiversity and ecosystem functioning.
+
+\hypertarget{discussion}{%
+\subsection{Discussion}\label{discussion}}
+
+Here, we present a way of measuring of \emph{functional connectivity}
+using simulation models. We construct a model of diffusion that relates
+to measurable values of resistance in real landscapes, and show that
+this diffusion model can make accurate predictions about stochastic
+dispersal at sufficiently high values of demographic stochasticity,
+\(\sigma_p\).
+
+We emphasize the importance of these types of simulation models in
+measuring \emph{functional} connectivity. Given the constraints that
+exist on conservation efforts, it is clear that we must make use of
+limited resources in the most effective way possible if we want to
+preserve biodiversity as it currently exists on Earth. Developing
+corridors between existing habitat patches has seen extensive use as a
+strategy in conservation (@beier\_conceptualizing\_2012). Within this
+framework, the question still remains---what corridors are the most
+effective to add? The resources available to conservation are often
+tightly limited and as a result being able to make the most effective
+decisions to preserve biodiversity given the potential resources
+available is important. We propose that simulation models, like we
+describe here, can be effective in assessing functional landscape
+connectivity, and planning future landscape development such that humans
+can live side-by-side with the rest of Earth's inhabitants.
+
+\pagebreak
