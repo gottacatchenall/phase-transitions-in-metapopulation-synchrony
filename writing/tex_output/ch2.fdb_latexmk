@@ -1,0 +1,15 @@
+# Fdb version 3
+["xdvipdfmx"] 1598565570 "tex_output/ch2.xdv" "tex_output/ch2.pdf" "tex_output/ch2" 1598565570
+  "tex_output/ch2.xdv" 1598565567 11272 9217639027c56e563af412effed16aa1 "xelatex"
+  (generated)
+  "tex_output/ch2.pdf"
+["xelatex"] 1598565567 "ch2.tex" "tex_output/ch2.xdv" "ch2" 1598565570
+  "/etc/texmf/web2c/texmf.cnf" 1589731108 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1590365170 4645851 cb422dece38fc68da73561c130383d2c ""
+  "ch2.tex" 1598565566 39849 6be54fc0d4a24cc17bc53aa3c11d1d75 ""
+  "tex_output/ch2.aux" 1598565548 8 a94a2480d3289e625eea47cd1b285758 ""
+  (generated)
+  "tex_output/ch2.xdv"
+  "tex_output/ch2.log"

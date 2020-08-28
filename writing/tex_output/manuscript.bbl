@@ -1,0 +1,323 @@
+\begin{thebibliography}{30}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Levin(1992)]{levin_problem_1992}
+Simon~A. Levin.
+\newblock The {Problem} of {Pattern} and {Scale} in {Ecology}: {The} {Robert}
+  {H}. {MacArthur} {Award} {Lecture}.
+\newblock \emph{Ecology}, 73\penalty0 (6):\penalty0 1943--1967, December 1992.
+\newblock ISSN 00129658.
+\newblock \doi{10.2307/1941447}.
+\newblock URL \url{http://doi.wiley.com/10.2307/1941447}.
+
+\bibitem[Manrubia et~al.(2004)Manrubia, Mikhailov, and
+  Zannette]{manrubia_emergence_2004}
+Susanna~C. Manrubia, A.~S. Mikhailov, and Damiań~H. Zannette.
+\newblock \emph{Emergence of dynamical order: synchronization phenomena in
+  complex systems}.
+\newblock Number v. 2 in World {Scientific} lecture notes in complex systems.
+  World Scientific, River Edge, NJ, 2004.
+\newblock ISBN 978-981-238-803-2.
+\newblock OCLC: ocm55992067.
+
+\bibitem[Womelsdorf et~al.(2007)Womelsdorf, Schoffelen, Oostenveld, Singer,
+  Desimone, Engel, and Fries]{womelsdorf_modulation_2007}
+T.~Womelsdorf, J.-M. Schoffelen, R.~Oostenveld, W.~Singer, R.~Desimone, A.~K.
+  Engel, and P.~Fries.
+\newblock Modulation of {Neuronal} {Interactions} {Through} {Neuronal}
+  {Synchronization}.
+\newblock \emph{Science}, 316\penalty0 (5831):\penalty0 1609--1612, June 2007.
+\newblock ISSN 0036-8075, 1095-9203.
+\newblock \doi{10.1126/science.1139597}.
+\newblock URL
+  \url{https://www.sciencemag.org/lookup/doi/10.1126/science.1139597}.
+
+\bibitem[Strogatz(2003)]{strogatz_sync_2003}
+Steven~H. Strogatz.
+\newblock \emph{Sync: the emerging science of spontaneous order}.
+\newblock Hyperion, New York, 1st ed edition, 2003.
+\newblock ISBN 978-0-7868-6844-5.
+
+\bibitem[Otte(1980)]{otte_theories_1980}
+Daniel Otte.
+\newblock On {Theories} of {Flash} {Synchronization} in {Fireflies}.
+\newblock \emph{The American Naturalist}, 116\penalty0 (4):\penalty0 587--590,
+  1980.
+\newblock ISSN 0003-0147.
+\newblock URL \url{https://www.jstor.org/stable/2460446}.
+\newblock Publisher: [University of Chicago Press, American Society of
+  Naturalists].
+
+\bibitem[Spottiswoode(2004)]{spottiswoode_extrapair_2004}
+C.~Spottiswoode.
+\newblock Extrapair paternity, migration, and breeding synchrony in birds.
+\newblock \emph{Behavioral Ecology}, 15\penalty0 (1):\penalty0 41--57, January
+  2004.
+\newblock ISSN 1465-7279.
+\newblock \doi{10.1093/beheco/arg100}.
+\newblock URL
+  \url{https://academic.oup.com/beheco/article-lookup/doi/10.1093/beheco/arg100}.
+
+\bibitem[van Asch and Visser(2007)]{van_asch_phenology_2007}
+Margriet van Asch and Marcel~E. Visser.
+\newblock Phenology of {Forest} {Caterpillars} and {Their} {Host} {Trees}:
+  {The} {Importance} of {Synchrony}.
+\newblock \emph{Annual Review of Entomology}, 52\penalty0 (1):\penalty0 37--55,
+  2007.
+\newblock \doi{10.1146/annurev.ento.52.110405.091418}.
+\newblock URL \url{https://doi.org/10.1146/annurev.ento.52.110405.091418}.
+\newblock \_eprint: https://doi.org/10.1146/annurev.ento.52.110405.091418.
+
+\bibitem[Burkle and Alarcón(2011)]{burkle_future_2011}
+Laura~A. Burkle and Ruben Alarcón.
+\newblock The future of plant–pollinator diversity: {Understanding}
+  interaction networks across time, space, and global change.
+\newblock \emph{American Journal of Botany}, 98\penalty0 (3):\penalty0
+  528--538, 2011.
+\newblock ISSN 1537-2197.
+\newblock \doi{10.3732/ajb.1000391}.
+\newblock URL
+  \url{https://bsapubs.onlinelibrary.wiley.com/doi/abs/10.3732/ajb.1000391}.
+\newblock \_eprint:
+  https://bsapubs.onlinelibrary.wiley.com/doi/pdf/10.3732/ajb.1000391.
+
+\bibitem[Jarillo et~al.(2020)Jarillo, Sæther, Engen, and
+  Cao-García]{jarillo_spatial_2020}
+Javier Jarillo, Bernt-Erik Sæther, Steinar Engen, and Francisco~Javier
+  Cao-García.
+\newblock Spatial {Scales} of {Population} {Synchrony} in {Predator}-{Prey}
+  {Systems}.
+\newblock \emph{The American Naturalist}, 195\penalty0 (2):\penalty0 216--230,
+  February 2020.
+\newblock ISSN 0003-0147.
+\newblock \doi{10.1086/706913}.
+\newblock URL \url{https://www.journals.uchicago.edu/doi/abs/10.1086/706913}.
+\newblock Publisher: The University of Chicago Press.
+
+\bibitem[Kendall et~al.(2000)Kendall, Bjørnstad, Bascompte, Keitt, and
+  Fagan]{kendall_dispersal_2000}
+Bruce~E Kendall, Ottar~N Bjørnstad, Jordi Bascompte, Timothy~H Keitt, and
+  William~F Fagan.
+\newblock Dispersal, {Environmental} {Correlation}, and {Spatial} {Synchrony}
+  in {Population} {Dynamics}.
+\newblock page~9, 2000.
+
+\bibitem[Hanski and Woiwod(1993)]{hanski_spatial_1993}
+I.~Hanski and I.~P. Woiwod.
+\newblock Spatial synchrony in the dynamics of moth and aphid populations.
+\newblock \emph{Journal of Animal Ecology}, 62\penalty0 (4):\penalty0 656--668,
+  1993.
+\newblock ISSN 00218790.
+\newblock URL \url{https://dx.doi.org/10.2307/5386}.
+\newblock Number: 4 Publisher: Wiley.
+
+\bibitem[Ripa(2000)]{ripa_analysing_2000}
+J.~Ripa.
+\newblock Analysing the {Moran} effect and dispersal: their significance and
+  interaction in synchronous population dynamics.
+\newblock \emph{Oikos}, 89\penalty0 (1):\penalty0 175--187, April 2000.
+\newblock ISSN 0030-1299.
+\newblock \doi{10.1034/j.1600-0706.2000.890119.x}.
+\newblock Place: Copenhagen Publisher: Munksgaard Int Publ Ltd
+  WOS:000086227400019.
+
+\bibitem[Abbott(2007)]{abbott_does_2007}
+Karen~C. Abbott.
+\newblock Does the pattern of population synchrony through space reveal if the
+  {Moran} effect is acting?
+\newblock \emph{Oikos}, 116\penalty0 (6):\penalty0 903--912, 2007.
+\newblock ISSN 1600-0706.
+\newblock \doi{10.1111/j.0030-1299.2007.15856.x}.
+\newblock URL
+  \url{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0030-1299.2007.15856.x}.
+\newblock \_eprint:
+  https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.0030-1299.2007.15856.x.
+
+\bibitem[Ranta et~al.(1995)Ranta, Kaitala, Lindstrom, and
+  Linden]{ranta_synchrony_1995}
+E.~Ranta, V.~Kaitala, J.~Lindstrom, and H.~Linden.
+\newblock Synchrony in {Population}-{Dynamics}.
+\newblock \emph{Proceedings of the Royal Society B-Biological Sciences},
+  262\penalty0 (1364):\penalty0 113--118, November 1995.
+\newblock ISSN 0962-8452.
+\newblock \doi{10.1098/rspb.1995.0184}.
+\newblock Place: London Publisher: Royal Soc WOS:A1995TH71200001.
+
+\bibitem[Bjørnstad et~al.(1999)Bjørnstad, Ims, and
+  Lambin]{bjornstad_spatial_1999}
+Ottar~N. Bjørnstad, Rolf~A. Ims, and Xavier Lambin.
+\newblock Spatial population dynamics: analyzing patterns and processes of
+  population synchrony.
+\newblock \emph{Trends in Ecology \& Evolution}, 14\penalty0 (11):\penalty0
+  427--432, November 1999.
+\newblock ISSN 0169-5347.
+\newblock \doi{10.1016/S0169-5347(99)01677-8}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0169534799016778}.
+
+\bibitem[Kool et~al.(2013)Kool, Moilanen, and Treml]{kool_population_2013}
+Johnathan~T. Kool, Atte Moilanen, and Eric~A. Treml.
+\newblock Population connectivity: recent advances and new perspectives.
+\newblock \emph{Landscape Ecology}, 28\penalty0 (2):\penalty0 165--185,
+  February 2013.
+\newblock ISSN 1572-9761.
+\newblock \doi{10.1007/s10980-012-9819-z}.
+\newblock URL \url{https://doi.org/10.1007/s10980-012-9819-z}.
+
+\bibitem[Calabrese and Fagan(2004)]{calabrese_comparison-shoppers_2004}
+Justin~M. Calabrese and William~F. Fagan.
+\newblock A comparison-shopper's guide to connectivity metrics.
+\newblock \emph{Frontiers in Ecology and the Environment}, 2\penalty0
+  (10):\penalty0 529--536, 2004.
+\newblock ISSN 1540-9309.
+\newblock \doi{10.1890/1540-9295(2004)002[0529:ACGTCM]2.0.CO;2}.
+\newblock URL
+  \url{https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/1540-9295%282004%29002%5B0529%3AACGTCM%5D2.0.CO%3B2}.
+\newblock \_eprint:
+  https://esajournals.onlinelibrary.wiley.com/doi/pdf/10.1890/1540-9295\%282004\%29002\%5B0529\%3AACGTCM\%5D2.0.CO\%3B2.
+
+\bibitem[Martensen et~al.(2017)Martensen, Saura, and
+  Fortin]{martensen_spatio-temporal_2017}
+Alexandre~Camargo Martensen, Santiago Saura, and Marie-Josee Fortin.
+\newblock Spatio-temporal connectivity: assessing the amount of reachable
+  habitat in dynamic landscapes.
+\newblock \emph{Methods in Ecology and Evolution}, 8\penalty0 (10):\penalty0
+  1253--1264, 2017.
+\newblock ISSN 2041-210X.
+\newblock \doi{10.1111/2041-210X.12799}.
+\newblock URL
+  \url{https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.12799}.
+\newblock \_eprint:
+  https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/2041-210X.12799.
+
+\bibitem[Scheffer et~al.(2012)Scheffer, Carpenter, Lenton, Bascompte, Brock,
+  Dakos, van~de Koppel, van~de Leemput, Levin, van Nes, Pascual, and
+  Vandermeer]{scheffer_anticipating_2012}
+M.~Scheffer, S.~R. Carpenter, T.~M. Lenton, J.~Bascompte, W.~Brock, V.~Dakos,
+  J.~van~de Koppel, I.~A. van~de Leemput, S.~A. Levin, E.~H. van Nes,
+  M.~Pascual, and J.~Vandermeer.
+\newblock Anticipating {Critical} {Transitions}.
+\newblock \emph{Science}, 338\penalty0 (6105):\penalty0 344--348, October 2012.
+\newblock ISSN 0036-8075, 1095-9203.
+\newblock \doi{10.1126/science.1225244}.
+\newblock URL
+  \url{https://www.sciencemag.org/lookup/doi/10.1126/science.1225244}.
+
+\bibitem[Scheffer et~al.(2009)Scheffer, Bascompte, Brock, Brovkin, Carpenter,
+  Dakos, Held, van Nes, Rietkerk, and Sugihara]{scheffer_early-warning_2009}
+Marten Scheffer, Jordi Bascompte, William~A. Brock, Victor Brovkin, Stephen~R.
+  Carpenter, Vasilis Dakos, Hermann Held, Egbert~H. van Nes, Max Rietkerk, and
+  George Sugihara.
+\newblock Early-warning signals for critical transitions.
+\newblock \emph{Nature}, 461\penalty0 (7260):\penalty0 53--59, September 2009.
+\newblock ISSN 0028-0836, 1476-4687.
+\newblock \doi{10.1038/nature08227}.
+\newblock URL \url{http://www.nature.com/articles/nature08227}.
+
+\bibitem[Sethna(2006)]{sethna_statistical_2006}
+James~P. Sethna.
+\newblock \emph{Statistical mechanics: entropy, order parameters, and
+  complexity}.
+\newblock Number~14 in Oxford master series in statistical, computational, and
+  theoretical physics. Oxford University Press, Oxford ; New York, 2006.
+\newblock ISBN 978-0-19-856676-2 978-0-19-856677-9.
+\newblock OCLC: ocm63136230.
+
+\bibitem[Hanski(1994)]{hanski_practical_1994}
+Ilkka Hanski.
+\newblock A {Practical} {Model} of {Metapopulation} {Dynamics}.
+\newblock \emph{The Journal of Animal Ecology}, 63\penalty0 (1):\penalty0 151,
+  January 1994.
+\newblock ISSN 00218790.
+\newblock \doi{10.2307/5591}.
+\newblock URL \url{https://www.jstor.org/stable/5591?origin=crossref}.
+
+\bibitem[Grilli et~al.(2015)Grilli, Barabás, and
+  Allesina]{grilli_metapopulation_2015}
+Jacopo Grilli, György Barabás, and Stefano Allesina.
+\newblock Metapopulation {Persistence} in {Random} {Fragmented} {Landscapes}.
+\newblock \emph{PLOS Computational Biology}, 11\penalty0 (5):\penalty0
+  e1004251, May 2015.
+\newblock ISSN 1553-7358.
+\newblock \doi{10.1371/journal.pcbi.1004251}.
+\newblock URL \url{https://dx.plos.org/10.1371/journal.pcbi.1004251}.
+
+\bibitem[Dale and Fortin(2010)]{dale_graphs_2010}
+M.R.T. Dale and M.-J. Fortin.
+\newblock From {Graphs} to {Spatial} {Graphs}.
+\newblock \emph{Annual Review of Ecology, Evolution, and Systematics},
+  41\penalty0 (1):\penalty0 21--38, December 2010.
+\newblock ISSN 1543-592X, 1545-2069.
+\newblock \doi{10.1146/annurev-ecolsys-102209-144718}.
+\newblock URL
+  \url{http://www.annualreviews.org/doi/10.1146/annurev-ecolsys-102209-144718}.
+
+\bibitem[Minor and Urban(2008)]{minor_graph-theory_2008}
+Emily~S. Minor and Dean~L. Urban.
+\newblock A {Graph}-{Theory} {Framework} for {Evaluating} {Landscape}
+  {Connectivity} and {Conservation} {Planning}: \textit{{Graph} {Theory},
+  {Connectivity}, and {Conservation}}.
+\newblock \emph{Conservation Biology}, 22\penalty0 (2):\penalty0 297--307,
+  April 2008.
+\newblock ISSN 08888892.
+\newblock \doi{10.1111/j.1523-1739.2007.00871.x}.
+\newblock URL \url{http://doi.wiley.com/10.1111/j.1523-1739.2007.00871.x}.
+
+\bibitem[Urban and Keitt(2001)]{urban_landscape_2001}
+Dean Urban and Timothy Keitt.
+\newblock {LANDSCAPE} {CONNECTIVITY}: {A} {GRAPH}-{THEORETIC} {PERSPECTIVE}.
+\newblock \emph{Ecology}, 82\penalty0 (5):\penalty0 1205--1218, May 2001.
+\newblock ISSN 0012-9658.
+\newblock \doi{10.1890/0012-9658(2001)082[1205:LCAGTP]2.0.CO;2}.
+\newblock URL
+  \url{http://doi.wiley.com/10.1890/0012-9658(2001)082[1205:LCAGTP]2.0.CO;2}.
+
+\bibitem[Spear et~al.(2010)Spear, Balkenhol, Fortin, Mcrae, and
+  Scribner]{spear_use_2010}
+Stephen~F. Spear, Niko Balkenhol, Marie-Josée Fortin, Brad~H. Mcrae, and Kim
+  Scribner.
+\newblock Use of resistance surfaces for landscape genetic studies:
+  considerations for parameterization and analysis: {RESISTANCE} {SURFACES}
+  {IN} {LANDSCAPE} {GENETICS}.
+\newblock \emph{Molecular Ecology}, 19\penalty0 (17):\penalty0 3576--3591,
+  September 2010.
+\newblock ISSN 09621083.
+\newblock \doi{10.1111/j.1365-294X.2010.04657.x}.
+\newblock URL \url{http://doi.wiley.com/10.1111/j.1365-294X.2010.04657.x}.
+
+\bibitem[Melbourne and Hastings(2008)]{melbourne_extinction_2008}
+Brett~A. Melbourne and Alan Hastings.
+\newblock Extinction risk depends strongly on factors contributing to
+  stochasticity.
+\newblock \emph{Nature}, 454\penalty0 (7200):\penalty0 100--103, July 2008.
+\newblock ISSN 0028-0836, 1476-4687.
+\newblock \doi{10.1038/nature06922}.
+\newblock URL \url{http://www.nature.com/articles/nature06922}.
+
+\bibitem[Brock and Carpenter(2012)]{brock_early_2012}
+William~A. Brock and Stephen~R. Carpenter.
+\newblock Early {Warnings} of {Regime} {Shift} {When} the {Ecosystem}
+  {Structure} {Is} {Unknown}.
+\newblock \emph{PLOS ONE}, 7\penalty0 (9):\penalty0 e45586, September 2012.
+\newblock ISSN 1932-6203.
+\newblock \doi{10.1371/journal.pone.0045586}.
+\newblock URL
+  \url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0045586}.
+\newblock Publisher: Public Library of Science.
+
+\bibitem[Kuehn(2011)]{kuehn_mathematical_2011}
+Christian Kuehn.
+\newblock A mathematical framework for critical transitions: {Bifurcations},
+  fast–slow systems and stochastic dynamics.
+\newblock \emph{Physica D: Nonlinear Phenomena}, 240\penalty0 (12):\penalty0
+  1020--1035, June 2011.
+\newblock ISSN 0167-2789.
+\newblock \doi{10.1016/j.physd.2011.02.012}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0167278911000443}.
+
+\end{thebibliography}

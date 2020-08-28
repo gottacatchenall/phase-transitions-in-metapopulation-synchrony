@@ -6,6 +6,8 @@ library(tidyverse)
 library(extrafont)
 library(latex2exp)
 library(Cairo)
+library(extrafont)
+loadfonts()
 setwd("~/phase_transitions_in_metapopulation_synchrony/figs")
 loadfonts()
 

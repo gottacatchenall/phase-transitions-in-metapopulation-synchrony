@@ -59,24 +59,20 @@ end
 function create_treatments(param_dict::Dict; replicates_per_treatment::Int64 = 50)
 	metadata::DataFrame = create_metadata_df(param_dict)
 	n_treatments::Int64 = nrow(metadata)
-	
+
 	treatments::Vector{Treatment} = []
 
 	# Treatment(mp, dynamics_model, sim_params, param_bundle, param_values, PCC(), log, abundance_matrix, initial_condition)
 	for t = 1:n_treatments
 		num_pops = metadata.num_populations[t]
 		alpha = metadata.alpha[t]
-	
-		migration_rate_distribution::Distribution = get_dist(metadata.migration_rate_distribution[t])
-		lambda_distribution::Distribution = get_dist(metadata.lambda_distribution[t])
-		sigma_distribution::Distribution = get_dist(metadata.sigma_distribution[t])
-		carrying_capacity_distribution::Distribution = get_dist(metadata.carrying_capacity_distribution[t])
 
-		dimensionality = num_pops
+		migration_rate_distribution::Distribution = get_dist(metadata.migration_rate[t])
+		lambda_distribution::Distribution = get_dist(metadata.lambda[t])
+		sigma_distribution::Distribution = get_dist(metadata.sigma[t])
+		carrying_capacity_distribution::Distribution = get_dist(metadata.carrying_capacity[t])
 
-		if (metadata.parameters_fixed_across_populations[t] == 1)
-			dimensionality = 1
-		end
+        dimensionality::Int64 = num_pops
 
 		alpha_dist = Parameter(Normal(alpha, 0.01), 1)
 		m_dist = Parameter(migration_rate_distribution, dimensionality)
@@ -84,17 +80,12 @@ function create_treatments(param_dict::Dict; replicates_per_treatment::Int64 = 5
 		sigma_dist = Parameter(sigma_distribution, dimensionality)
 		carrying_cap_dist = Parameter(carrying_capacity_distribution, dimensionality)
 
-
 		param_bundle = StochasticLogisticParameterBundle(num_pops, alpha, m_dist, lambda_dist,sigma_dist, carrying_cap_dist)
-
-
-#		param_values = draw_from_parameter_bundle(param_bundle)
 
 		dynamics_model = StochasticLogisticWDiffusion()
 		sim_params = SimulationParameters(metadata.number_of_timesteps[t], 0.1, 10, false)
-		
-		tr = Treatment(metadata.metapopulation_generator[t], dynamics_model, sim_params, param_bundle, PCC, [])
 
+		tr = Treatment(metadata.metapopulation_generator[t], dynamics_model, sim_params, param_bundle, PCC, [])
 		push!(treatments, tr)
 	end
 
@@ -110,7 +101,7 @@ end
 function run_treatments(treatment_set::TreatmentSet)
 	n_treatments::Int64 = length(treatment_set.treatments)
 	n_replicates::Int64 = treatment_set.replicates_per_treatment
-	
+
 	treatments::Vector{Treatment} = treatment_set.treatments
 	@show treatments
 	df = DataFrame(treatment=[], replicate=[], summary_stat=[])

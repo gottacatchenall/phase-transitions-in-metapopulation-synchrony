@@ -53,7 +53,7 @@ struct StochasticLogisticParameterValues <: ParameterValues
     sigma::Vector{Float64} # sigma across pops
 end
 
-Base.show(io::IO, params::StochasticLogisticParameterValues) = print(io, 
+Base.show(io::IO, params::StochasticLogisticParameterValues) = print(io,
                                                                     "Stochastic Logistic Model with Parameters: \n",
                                                                     "\t\t\talpha:", params.alpha, "\n",
                                                                     "\t\t\tlambda:", params.lambda, "\n",
@@ -87,10 +87,10 @@ mutable struct Metapopulation
     populations::Vector{Population}
     dispersal_potential::DispersalPotential
 end
-Base.show(io::IO, metapopulation::Metapopulation) = print(io, "Metapopulation with ", 
-metapopulation.num_populations, 
-" populations and alpha = ", 
-metapopulation.dispersal_potential.alpha,  
+Base.show(io::IO, metapopulation::Metapopulation) = print(io, "Metapopulation with ",
+metapopulation.num_populations,
+" populations and alpha = ",
+metapopulation.dispersal_potential.alpha,
 "\n",
 " Coordinates: ", [metapopulation.populations[p].coordinate for p = 1:metapopulation.num_populations]
 )
@@ -139,10 +139,10 @@ mutable struct Treatment
     simulation_parameters::SimulationParameters
     theta::ParameterBundle
     summary_stat::Function
-    instances::Vector{TreatmentInstance} 
+    instances::Vector{TreatmentInstance}
 end
 
-Base.show(io::IO, treatment::Treatment) = print(io, "\n\n\nTreatment\n", 
+Base.show(io::IO, treatment::Treatment) = print(io, "\n\n\nTreatment\n",
                                                     "--------------------------------------------\n",
                                                     "\tdX/dt : ", (treatment.dx_dt), "\n",
                                                     )
