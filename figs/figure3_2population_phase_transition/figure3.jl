@@ -3,7 +3,7 @@
 proj_folder = "/home/michael/phase_transitions_in_metapopulation_synchrony/"
 cd(proj_folder)
 
-include("./src/deps.jl")
+include(string(proj_folder, "./src/deps.jl"))
 output_dir_path = string(proj_folder , "figs/figure3_2population_phase_transition/output/")
 
 
@@ -33,7 +33,9 @@ param_dictionary = Dict(
                         #
                         # _________________________________________________
                         "number_of_timesteps" => [300],
-                        "metapopulation_generator" => [get_random_metapopulation]
+                        "metapopulation_generator" => [get_random_metapopulation],
+                        "fixed_metapopulation" => [false],
+                        "log_abundances" => [false]
                     )
 
 
@@ -46,6 +48,3 @@ mkdir(output_dir_path)
 
 CSV.write(string(output_dir_path, "treatment_set.csv"), df)
 CSV.write(string(output_dir_path, "metadata.csv"), treatment_set.metadata)
-
-
-

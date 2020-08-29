@@ -1,9 +1,10 @@
 setwd("~/phase_transitions_in_metapopulation_synchrony/figs/figure7_expected_num_pops/output")
 library(tidyverse)
+library(gridExtra)
 library(ggthemr)
 library(latex2exp)
 ggthemr('fresh', spacing=3)
-cmuserif = p$`CMU Serif`$family
+cmuserif = pdfFonts()$`CMU Serif`$family
 thm = theme(panel.border = element_rect(colour = "#222222", fill = NA, size=0.75), 
             panel.spacing=unit(3, "lines"),
             text=element_text(family=cmuserif,size=20), axis.title.y = element_text(angle = 0, vjust=0.5),
@@ -20,33 +21,21 @@ compute_exp_pops = function(m_max){
   return(np)
 }
 
+
 data %>% 
-  group_by(treatment) %>%
-  filter(alpha==10) %>%
-  mutate(mean_pcc = mean(summary_stat)) %>%
-  ggplot(aes(migration_rate, mean_pcc)) + geom_point()
+  group_by(num_populations, alpha) %>% 
+  filter(max(summary_stat)==summary_stat) %>%
+  mutate(exp_num_pops = compute_exp_pops(migration_rate)/num_populations) %>% 
+  ggplot(aes(alpha,exp_num_pops, color=factor(num_populations)),) + geom_point() + geom_line() + ylim(0,2)
+  
+  
+
 
 data %>% 
   group_by(treatment) %>%
   mutate(mean_pcc = mean(summary_stat)) %>%
-  ungroup %>%
-  group_by(alpha) %>% 
-  filter(abs(mean_pcc - max(mean_pcc)) < 0.01) %>%
-  mutate(expected_num_pops = compute_exp_pops(migration_rate)) %>%
-  mutate(mean_critical_migration=mean(migration_rate)) %>%
-  mutate(expected_num_pops = compute_exp_pops(mean_critical_migration)) %>%
-  ggplot(aes(alpha, expected_num_pops))  + 
-  geom_point() +
-  geom_hline(aes(yintercept=15), linestyle='dashed') + scale_y_continuous(limits=c(0,18))
-
-exp_data = data %>% 
-  group_by(treatment) %>%
-  mutate(mean_pcc = mean(summary_stat)) %>%
-  ungroup %>%
-  group_by(alpha) %>% 
-  filter(abs(mean_pcc - max(mean_pcc)) < 0.001) %>%
-  ggplot(aes(alpha, mean_pcc))  + 
-  geom_point(size=2) 
+  ggplot(aes(alpha, mean_pcc, group=num_populations, color=factor(num_populations)))  + 
+  geom_point(size=2)  + geom_line() + thm + ylim(0,1)
 
 grid.arrange(exp_pops, exp_data)
 #+ 

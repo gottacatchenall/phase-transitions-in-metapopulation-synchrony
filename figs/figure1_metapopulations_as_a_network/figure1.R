@@ -1,4 +1,4 @@
-elibrary(ggplot2)
+library(ggplot2)
 library(ggnet)
 library(gridExtra)
 library(tikzDevice)
@@ -10,12 +10,6 @@ library(extrafont)
 loadfonts()
 setwd("~/phase_transitions_in_metapopulation_synchrony/figs")
 loadfonts()
-
-data(mtcars)
-mtcars %>% ggplot(aes(x=mpg, y=disp)) + geom_col(aes(col=cyl)) + 
-    theme(text  = element_text(size=10, family=p$`CMU Serif`$family)) + ggtitle("for the boys")
-
-
 cmuserif = p$`CMU Serif`$family
 ## ============================================ 
 ## DISPERSAL KERNEL PLOTTING / FIG 1
@@ -116,18 +110,23 @@ get_pop_points = function(x_vals, y_vals, alpha, mig_prop, kernel=exp_kern, kern
 
 n_pops = 20
 
+set.seed(5)
+
 x_vals = runif(n_pops, 0, 1)    
 y_vals = runif(n_pops, 0, 1)
 
 plt1 = get_pop_points(x_vals, y_vals, 2, 1.5, kernel=exp_kern,yaxis=T)
-plt2 = get_pop_points(x_vals, y_vals, 6, 1.5, kernel=exp_kern, yaxis=F, xaxis=F)
-plt3 = get_pop_points(x_vals, y_vals, 10, 1.5, kernel=exp_kern, yaxis=F, xaxis=F)
+plt2 = get_pop_points(x_vals, y_vals, 7, 1.5, kernel=exp_kern, yaxis=F, xaxis=F)
+plt3 = get_pop_points(x_vals, y_vals, 12, 1.5, kernel=exp_kern, yaxis=F, xaxis=F)
 plt4 = get_pop_points(x_vals, y_vals, 2, 1.5, kernel=gauss_kern, yaxis=T,xaxis=T,kernel_name="Gauss")
-plt5 = get_pop_points(x_vals, y_vals, 6, 1.5, kernel=gauss_kern, xaxis=T,kernel_name="Gauss")
-plt6 = get_pop_points(x_vals, y_vals, 10, 1.5, kernel=gauss_kern, xaxis=T, yaxis=F, kernel_name="Gauss")
+plt5 = get_pop_points(x_vals, y_vals, 7, 1.5, kernel=gauss_kern, xaxis=T,kernel_name="Gauss")
+plt6 = get_pop_points(x_vals, y_vals, 12, 1.5, kernel=gauss_kern, xaxis=T, yaxis=F, kernel_name="Gauss")
 
 
 g = grid.arrange(plt1,plt2,plt3,plt4,plt5,plt6, nrow=2, padding=unit(3.5, 'line'))
 
-ggsave("wowee_zowee.pdf", plot=g, dpi=320, width = 12, height = 8, units = "in", device=cairo_pdf)
+
+output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure1.png"
+ggsave(output_path, plot=g, dpi=320, width = 12, height = 8, units = "in", device=png())
+
 

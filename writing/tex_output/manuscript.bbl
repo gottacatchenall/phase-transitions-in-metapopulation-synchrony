@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{35}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -319,5 +319,52 @@ Christian Kuehn.
 \newblock \doi{10.1016/j.physd.2011.02.012}.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/S0167278911000443}.
+
+\bibitem[Lande et~al.(2003)Lande, Engen, and Sæther]{lande_stochastic_2003}
+Russell Lande, Steinar Engen, and Bernt-Erik Sæther.
+\newblock \emph{Stochastic population dynamics in ecology and conservation}.
+\newblock Oxford series in ecology and evolution. Oxford University Press,
+  Oxford ; New York, 2003.
+\newblock ISBN 978-0-19-852524-0 978-0-19-852525-7.
+
+\bibitem[Ovaskainen et~al.(2008)Ovaskainen, Luoto, Ikonen, Rekola, Meyke, and
+  Kuussaari]{ovaskainen_empirical_2008}
+Otso Ovaskainen, Miska Luoto, Iiro Ikonen, Hanna Rekola, Evgeniy Meyke, and
+  Mikko Kuussaari.
+\newblock An {Empirical} {Test} of a {Diffusion} {Model}: {Predicting}
+  {Clouded} {Apollo} {Movements} in a {Novel} {Environment}.
+\newblock \emph{The American Naturalist}, 171\penalty0 (5):\penalty0 610--619,
+  May 2008.
+\newblock ISSN 0003-0147.
+\newblock \doi{10.1086/587070}.
+\newblock URL \url{https://www.journals.uchicago.edu/doi/10.1086/587070}.
+\newblock Publisher: The University of Chicago Press.
+
+\bibitem[Holmes et~al.(1994)Holmes, Lewis, Banks, and
+  Veit]{holmes_partial-differential_1994}
+Ee~Holmes, Ma~Lewis, Je~Banks, and Rr~Veit.
+\newblock Partial-{Differential} {Equations} in {Ecology} - {Spatial}
+  {Interactions} and {Population}-{Dynamics}.
+\newblock \emph{Ecology}, 75\penalty0 (1):\penalty0 17--29, January 1994.
+\newblock ISSN 0012-9658.
+\newblock \doi{10.2307/1939378}.
+\newblock Place: Washington Publisher: Ecological Soc Amer WOS:A1994MP60200003.
+
+\bibitem[Ōkubo and Levin(2011)]{okubo_diffusion_2011}
+Akira Ōkubo and Simon~A Levin.
+\newblock \emph{Diffusion and ecological problems: modern perspectives}.
+\newblock Springer, New York; London, 2011.
+\newblock ISBN 978-1-4419-3151-1.
+\newblock OCLC: 1064534681.
+
+\bibitem[Liebhold et~al.(2004)Liebhold, Koenig, and
+  Bjørnstad]{liebhold_spatial_2004}
+Andrew Liebhold, Walter~D. Koenig, and Ottar~N. Bjørnstad.
+\newblock Spatial {Synchrony} in {Population} {Dynamics}.
+\newblock \emph{Annual Review of Ecology, Evolution, and Systematics},
+  35\penalty0 (1):\penalty0 467--490, 2004.
+\newblock \doi{10.1146/annurev.ecolsys.34.011802.132516}.
+\newblock URL \url{https://doi.org/10.1146/annurev.ecolsys.34.011802.132516}.
+\newblock \_eprint: https://doi.org/10.1146/annurev.ecolsys.34.011802.132516.
 
 \end{thebibliography}

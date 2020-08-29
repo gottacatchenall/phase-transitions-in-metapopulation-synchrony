@@ -24,7 +24,7 @@ param_dictionary = Dict(
                         "sigma"             => [1.0],
                         "carrying_capacity" => [1.0],
                         "num_populations" => collect(2:25),
-                        "alpha"           => [0.0],
+                        "alpha"           => [0.0, 5.0, 10.0, 20.0],
                         # _________________________________________________
                         #
                         # simulation parameters

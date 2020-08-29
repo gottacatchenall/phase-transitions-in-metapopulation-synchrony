@@ -139,6 +139,7 @@ mutable struct Treatment
     simulation_parameters::SimulationParameters
     theta::ParameterBundle
     summary_stat::Function
+    log_abundances::Bool
     instances::Vector{TreatmentInstance}
 end
 

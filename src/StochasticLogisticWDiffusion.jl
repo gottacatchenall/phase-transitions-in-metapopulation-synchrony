@@ -46,13 +46,15 @@ end
 function get_dispersal_matrix(dispersal_potential::DispersalPotential, migration_rate::Vector{Float64})
     n_pops = length(dispersal_potential.matrix[1,:])
 
+    migration_max = 1.0 - (1.0/n_pops)
+
     dispersal_matrix = zeros(n_pops, n_pops)
     for p1 = 1:n_pops
         for p2 = 1:n_pops
             if (p1 == p2)
-                dispersal_matrix[p1,p2] = 1.0 - migration_rate[p1]
+                dispersal_matrix[p1,p2] = 1.0 -  migration_rate[p1]
             else
-                dispersal_matrix[p1,p2] = migration_rate[p1] * dispersal_potential.matrix[p1,p2]
+                dispersal_matrix[p1,p2] =  migration_rate[p1]* dispersal_potential.matrix[p1,p2]
             end
         end
     end

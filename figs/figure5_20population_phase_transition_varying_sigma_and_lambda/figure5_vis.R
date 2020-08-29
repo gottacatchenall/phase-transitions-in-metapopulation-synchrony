@@ -5,7 +5,7 @@ library(latex2exp)
 library(extrafont)
 loadfonts()
 ggthemr('fresh', spacing=3)
-cmuserif = p$`CMU Serif`$family
+cmuserif = pdfFonts()$`CMU Serif`$family
 thm = theme(panel.border = element_rect(colour = "#222222", fill = NA, size=0.75), 
             panel.spacing=unit(3, "lines"),
             text=element_text(family=cmuserif,size=20), axis.title.y = element_text(angle = 0, vjust=0.5),
@@ -34,6 +34,7 @@ convert_to_tex_label = function(string) {
   return(TeX(string))
 }
 
+
 plt=data %>% 
   group_by(treatment) %>%
   mutate(mean_pcc = mean(summary_stat)) %>%
@@ -54,12 +55,36 @@ plt=data %>%
   facet_grid(vars(sigma_facet), vars(lambda_facet), labeller = as_labeller(convert_to_tex_label, label_parsed)) +
   thm
 
+output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure5.png"
+ggsave(output_path, plot=plt, dpi=320, width = 10, height = 10, units = "in", device=png)
+
+get_logit_intercept = function(data, pcc, mig){
+ m = glm(formula=pcc ~ mig, data=data, family="quasibinomial")
+ return(m$coefficients[1])
+}
+
+get_logit_slope = function(data, pcc, mig ){
+  m = glm(formula=pcc ~ mig, data=data, family="quasibinomial")
+  return(m$coefficients[2])
+}
+
+data %>%
+  group_by(treatment) %>%
+  mutate(mean_pcc = mean(summary_stat)) %>%
+  ungroup() %>% 
+  group_by(lambda, sigma) %>%
+  ggplot(aes(migration_rate, mean_pcc)) + facet_grid(vars(lambda), vars(sigma)) + geom_point()
+  
+data %>%
+  group_by(treatment) %>%
+  mutate(mean_pcc = mean(summary_stat)) %>%
+  ungroup() %>% 
+  group_by(lambda, sigma) %>%
+  mutate(intercept=get_logit_intercept(., mean_pcc, migration_rate)) %>%
+  mutate(slope=get_logit_slope(., mean_pcc, migration_rate)) %>% 
+  mutate(logit_fcn=(1.0)/(1.0+exp(-1*slope*migration_rate + intercept))) %>%
+  ggplot(aes(migration_rate, logit_fcn))  + geom_point(aes(migration_rate, mean_pcc, shape=factor(lambda), color=factor(sigma)))
+  
 
 
-output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure5.pdf"
-ggsave(output_path, plot=plt, dpi=320, width = 18, height = 8, units = "in", device=cairo_pdf)
-
-
-  #+ 
- # coord_cartesian(xlim = c(0.0,1.0)) 
-
+  

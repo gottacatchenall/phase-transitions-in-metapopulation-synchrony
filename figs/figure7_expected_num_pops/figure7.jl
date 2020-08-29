@@ -23,7 +23,7 @@ param_dictionary = Dict(
                         "lambda"            => [1.0],
                         "sigma"             => [1.0],
                         "carrying_capacity" => [1.0],
-                        "num_populations" => [15],
+                        "num_populations" => [5, 10, 15, 20, 25],
                         "alpha"           => [i for i = 0.0:2:20],
                         # _________________________________________________
                         #
@@ -36,12 +36,9 @@ param_dictionary = Dict(
 
 
 
-treatment_set = create_treatments(param_dictionary, replicates_per_treatment = 200)
+treatment_set = create_treatments(param_dictionary, replicates_per_treatment = 50)
 
 df = run_treatments(treatment_set)
 
 CSV.write(string(output_dir_path, "treatment_set.csv"), df)
 CSV.write(string(output_dir_path, "metadata.csv"), treatment_set.metadata)
-
-
-

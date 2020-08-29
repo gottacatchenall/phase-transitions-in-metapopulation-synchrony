@@ -1,0 +1,7 @@
+treatment,sigma,num_populations,migration_rate,alpha,log_abundances,lambda,carrying_capacity,fixed_metapopulation,metapopulation_generator,number_of_timesteps
+1,1.0,2,0.05,3.0,true,1.0,1.0,false,get_random_metapopulation,300
+2,1.0,8,0.05,3.0,true,1.0,1.0,false,get_random_metapopulation,300
+3,1.0,2,0.3,3.0,true,1.0,1.0,false,get_random_metapopulation,300
+4,1.0,8,0.3,3.0,true,1.0,1.0,false,get_random_metapopulation,300
+5,1.0,2,0.7,3.0,true,1.0,1.0,false,get_random_metapopulation,300
+6,1.0,8,0.7,3.0,true,1.0,1.0,false,get_random_metapopulation,300

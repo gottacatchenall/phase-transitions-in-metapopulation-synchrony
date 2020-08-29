@@ -195,7 +195,7 @@ Gaussian, \(f(d_{ij}, \alpha)=e^{-\alpha^2 d_{ij}^2}\), which have both been c
 
 To construct a dispersal potential $\Phi_{ij}$ with a kernel $f(d_{ij}, \alpha)$,  we normalize:
 
-\[P(V_j|V_i)=\frac{f(d_{ij}, \alpha)}{\sum_k f(d_{ik},\alpha)}\]
+\[\Phi_{ij} = P(V_j|V_i)=\frac{f(d_{ij}, \alpha)}{\sum_k f(d_{ik},\alpha)}\]
 
 Note that if \(\alpha=0\), then the value of both exponential and
 Gaussian kernels is the same for all pairs of populations, and therefore
@@ -224,17 +224,26 @@ the stochastic logistic model. The dynamics of the number of individuals $N_i$
 in population $L_i$  are described by the stochastic differential
 equation (SDE)
 
-\[dN_i=\lambda_i N_i \big(1 - \frac{N_i}{K_i}\big)dt+\sigma_pN_idW\]
+\[dN_i=\lambda_i N_i \bigg(1 - \frac{N_i}{K_i}\bigg)dt+\sigma N_idW\]
 
 Here, \(N_i\) is the abundance of population \(L_i\), \(\lambda_i\) is the
 strength of density dependence in that population, and \(K_i\) is the
 carrying capacity of \(L_i\). \(\sigma_p\) represents that standard
 deviation in abundance due to local stochasticity as a proportion of
-\(N_i\). Here \(\sigma_p\) represents an amalgamation of all factors
+\(N_i\). Here \(\sigma\) represents an amalgamation of all factors
 contributing to local stochasticity in population dynamics, although it
 should be noted that the relative contribution of different factors to
 local stochasticity can drive significant variation in dynamics
-\cite{melbourne_extinction_2008}. For the sake of reducing the size of parameter
+\cite{melbourne_extinction_2008}.
+
+
+We can write this system as the matrix equation
+\begin{equation}
+        d\boldsymbol{N} = \boldsymbol{I} \boldsymbol{\lambda} \bigg(\boldsymbol{I}(\boldsymbol{K} - \boldsymbol{N})\boldsymbol{K}^{-1} \bigg) d\boldsymbol{t} + \boldsymbol{I} \boldsymbol{\sigma} \boldsymbol{N} d\boldsymbol{W}
+\end{equation}
+
+
+For the sake of reducing the size of parameter
 space, here we consider all populations as having the same \(\lambda_i\)
 and \(K_i\), however, future work could include exploring the
 source-sink dynamics in this system by varying intrinsic growth rates
@@ -242,51 +251,45 @@ and carrying capacities across populations.
 
 We use an SDE representation because they have been used to study phase
 transitions in stochastic systems before \cite{brock_early_2012, kuehn_mathematical_2011}, and they have many nice properties for inference. SDEs
-have been used to study extinction dynamics before, as it is relatively
-straightforward to compute the mean time until extinction (MTE) using
-the Kolmogorov Backward Equation (@lande\_stochastic\_2003).
+have also been used in ecology to study extinction dynamics before, as it is relatively straightforward to compute the mean time until extinction (MTE) using
+the Kolmogorov Backward Equation \cite{lande_stochastic_2003}.
 
 \hypertarget{diffusion-on-spatial-graphs}{%
-\subsubsection{Diffusion on Spatial
+\subsection{Diffusion on Spatial
 Graphs}\label{diffusion-on-spatial-graphs}}
 
 When we model a landscape with a spatial graph, we have to decide how
 different nodes affect one another. The processes that connect
 landscapes are inherently stochastic. The probability that an individual
-migrates within its lifetime, \(p_m\), and where it goes, \(P(V_j|V_i)\)
-, are both stochastic processes. Under some conditions, we can
+migrates within its lifetime, $m$, and where it goes, $\Phi_{ij}$, are both stochastic . Under some conditions, we can
 effectively model stochastic dynamics across space using diffusion
 models. In essence, a diffusion model assumes that at each timestep the
 system will change according to the expected value of stochastic
 dispersal. Diffusion models have seen widespread use in ecology and
-other fields (@ovaskainen\_empirical\_2008,
-@holmes\_partial-differential\_1994, @okubo\_diffusion\_2011).
+other fields \cite{ovaskainen_empirical_2008, holmes_partial-differential_1994, okubo_diffusion_2011}.
 
-Given our dispersal potential \(P(V_j|V_i)\), we can define the
-diffusion matrix \(\Phi\) as
+Given our dispersal potential $\Phi_{ij}$, we can define the
+diffusion matrix \( D \) as
 
-\[\Phi_{ij} = \begin{cases} 1 - p_m \quad\quad &\text{if}\ i = j \\ P(V_j|V_i)p_m & \text{if}\ i \neq j\end{cases}\]
+\[D_{ij} = \begin{cases} 1 - m \quad\quad &\text{if}\ i = j \\ \Phi_{ij}m & \text{if}\ i \neq j\end{cases}\]
 
-where \(\Phi_{ij}\) represents the probability that any individual born
-in \(V_i\) reproduces in \(V_j\).
-
-Now we move to considering the dynamics of the abundance of the
-population at \(V_i\), denoted \(N_i\). We can now represent the
+We can now represent the
 dynamics due to diffusion of this system as
 
-\[\dot{N_i}=(1-p_m)N_i+ \sum_j p_mP(V_j|V_i)N_j\]
+\[\dot{N_i}=(1-m)N_i+ \sum_j \Phi_{ij}mN_j\]
 
 In matrix notation, we can represent this diffusion model as
 
-\[\frac{d\vec{N}}{dt}=\Phi^T\vec{N}\]
+\[\frac{d\vec{N}}{dt}=D^T\vec{N}\]
 
 We can then combine this with local dynamics as a reaction-diffusion
 model,
 
-\[\frac{d\vec{N}}{dt} = g(\Phi^T \vec{N})\]
+\[\frac{d\vec{N}}{dt} = g(D^T \vec{N})\]
 
 where \(g(x)\) is a function that represents the hypothesized mechanism
 of how the ecological measurement evolves locally.
+
 
 In principle, \(g(x)\) can represent any ecological process of
 interest---for example if the state space of \(x\) is allelic
@@ -298,7 +301,7 @@ be the stochastic logistic model (see previous section). Combining this
 with the diffusion model yields the SDE
 
 \begin{equation} \label{diffusion_model}
-  d \vec{N} = {I} (\Phi^T \vec{N})(\vec{k}-\vec{N}) dt + \sigma_p \vec{k} \ d\vec{W}
+  d \boldsymbol{N} = \boldsymbol{I} (D^T \boldsymbol{N})\bigg(\boldsymbol{I}\boldsymbol{K}^{-1}(\boldsymbol{K}-D^T \boldsymbol{N})\bigg) d\boldsymbol{t} + \boldsymbol{I}\boldsymbol{\sigma} \boldsymbol{N} \ d\boldsymbol{W}
 \end{equation}
 
 which will be the primary object of study in this paper.
@@ -311,15 +314,15 @@ used in the study of phase transitions. When the order parameter gains
 or loses correlation in space and time is used as an indicator of when a
 system changes qualitative phases. Within the context of ecology, the
 crosscorrelation function, \(CC\), has long been used as a measure of
-synchronous dynamics (@liebhold\_spatial\_2004). Here, with a subdivided
+synchronous dynamics \cite{liebhold_spatial_2004}. Here, with a subdivided
 population, we consider the mean crosscorrelation compared across all
 populations, \({PCC}=\frac{1}{n^2}\sum_{i,j} CC(V_i,V_j)\) . As an
 example, in \ref{async_and_sync}, panel (a) show an example of low PCC,
 and panel (b) shows an example of high PCC.
 
 \begin{figure}[h]
-\caption{The abundance of 5 populations (each in a different color) across time. Panel (a):  These populations show low synchrony, $PCC=0.1$. Panel (b): These populations show high sychrony, $PCC=0.89$ }
-
+\includegraphics[width=15cm]{./figs/figure2}
+\caption{The abundance of 2 populations (top) and 8 populations (bottom) across time. Get the values of synchrony }
 \label{async_and_sync}
 
 \end{figure}
@@ -333,7 +336,7 @@ consists of the following parameters,
 \(\theta = \{N_p, \lambda, \sigma_p, \vec{K},p_m, \alpha \}\). For each
 unique set of parameters, we run \(50\) replicates across all values of
 \(p_m = \{0.01,0.02,\dots,1.0 \}\). For each replicate, we independently
-draw the location of \(N_p\) populations uniformly in \([0,1]^2\). We
+draw the location of \(N_p\)     populations uniformly in \([0,1]^2\). We
 draw the intial value of abundance for all populations from a uniform
 distribution, \(N_i \sim U(0, K_i)\). We then integrate equation
 \ref{diffusion_model} forward \(500\) timesteps using the
@@ -343,14 +346,27 @@ populations \(i \neq j\). Then, we compute the mean pairwise
 crosscorrelation for that replicate, \(PCC\), and start the next
 replicate.
 
-\pagebreak
 
+
+\pagebreak
 \begin{figure}
-    \includegraphics[width=15cm]{figs/figure4.pdf}
+    \includegraphics[width=15cm]{figs/figure3}
     \caption{}
     \label{}
 \end{figure}
 
+\begin{figure}
+    \includegraphics[width=15cm]{figs/figure4}
+    \caption{}
+    \label{}
+\end{figure}
+
+
+\begin{figure}
+    \includegraphics[width=15cm]{figs/figure5}
+    \caption{}
+    \label{}
+\end{figure}
 
 
 \clearpage

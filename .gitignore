@@ -2,7 +2,7 @@
 *.jpg
 *.pyc
 .RData
-.History
+.RHistory
 *.aux
 *.out
 

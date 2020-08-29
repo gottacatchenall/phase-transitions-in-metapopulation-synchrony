@@ -8,45 +8,45 @@ Warning--I didn't find a database entry for ""
 Warning--I didn't find a database entry for "@albert_applying_2017"
 Warning--I didn't find a database entry for "@urban_landscape_2001"
 Warning--empty journal in kendall_dispersal_2000
-You've used 30 entries,
+You've used 35 entries,
             2481 wiz_defined-function locations,
-            842 strings with 13362 characters,
-and the built_in function-call counts, 13227 in all, are:
-= -- 1277
-> -- 606
-< -- 21
-+ -- 238
-- -- 178
-* -- 1175
-:= -- 2176
-add.period$ -- 181
-call.type$ -- 30
-change.case$ -- 58
-chr.to.int$ -- 30
-cite$ -- 31
-duplicate$ -- 573
-empty$ -- 1111
-format.name$ -- 226
-if$ -- 2769
+            876 strings with 14641 characters,
+and the built_in function-call counts, 15349 in all, are:
+= -- 1469
+> -- 729
+< -- 22
++ -- 284
+- -- 214
+* -- 1361
+:= -- 2535
+add.period$ -- 210
+call.type$ -- 35
+change.case$ -- 66
+chr.to.int$ -- 35
+cite$ -- 36
+duplicate$ -- 668
+empty$ -- 1283
+format.name$ -- 269
+if$ -- 3212
 int.to.chr$ -- 1
-int.to.str$ -- 31
-missing$ -- 33
-newline$ -- 247
-num.names$ -- 90
-pop$ -- 133
+int.to.str$ -- 36
+missing$ -- 40
+newline$ -- 285
+num.names$ -- 105
+pop$ -- 161
 preamble$ -- 1
-purify$ -- 30
+purify$ -- 35
 quote$ -- 0
-skip$ -- 306
+skip$ -- 354
 stack$ -- 0
-substring$ -- 700
-swap$ -- 83
+substring$ -- 779
+swap$ -- 95
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 201
+type$ -- 230
 warning$ -- 1
-while$ -- 110
+while$ -- 126
 width$ -- 0
-write$ -- 577
+write$ -- 669
 (There were 5 warnings)

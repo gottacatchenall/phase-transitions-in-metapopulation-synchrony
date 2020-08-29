@@ -57,7 +57,7 @@ plt = data %>%
   thm + 
   coord_cartesian(xlim = c(0.0,1.0), ylim=c(0.0,1.0)) 
 
-output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure4.pdf"
-ggsave(output_path, plot=plt, dpi=320, width = 12, height = 8, units = "in", device=cairo_pdf)
+output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure4.png"
+ggsave(output_path, plot=plt, dpi=320, width = 12, height = 8, units = "in", device=png())
 
 

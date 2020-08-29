@@ -74,7 +74,7 @@ function create_treatments(param_dict::Dict; replicates_per_treatment::Int64 = 5
 
         dimensionality::Int64 = num_pops
 
-		alpha_dist = Parameter(Normal(alpha, 0.01), 1)
+		alpha_dist = Parameter(Normal(alpha, 0.0), 1)
 		m_dist = Parameter(migration_rate_distribution, dimensionality)
 		lambda_dist = Parameter(lambda_distribution, dimensionality)
 		sigma_dist = Parameter(sigma_distribution, dimensionality)
@@ -85,7 +85,7 @@ function create_treatments(param_dict::Dict; replicates_per_treatment::Int64 = 5
 		dynamics_model = StochasticLogisticWDiffusion()
 		sim_params = SimulationParameters(metadata.number_of_timesteps[t], 0.1, 10, false)
 
-		tr = Treatment(metadata.metapopulation_generator[t], dynamics_model, sim_params, param_bundle, PCC, [])
+		tr = Treatment(metadata.metapopulation_generator[t], dynamics_model, sim_params, param_bundle, metadata.summary_stat[t], metadata.log_abundances[t], [])
 		push!(treatments, tr)
 	end
 
@@ -98,29 +98,35 @@ end
 #
 # =================================================
 
-function run_treatments(treatment_set::TreatmentSet)
+function run_treatments(treatment_set::TreatmentSet; abundances_path = "./abundances.csv")
 	n_treatments::Int64 = length(treatment_set.treatments)
 	n_replicates::Int64 = treatment_set.replicates_per_treatment
 
 	treatments::Vector{Treatment} = treatment_set.treatments
 	@show treatments
-	df = DataFrame(treatment=[], replicate=[], summary_stat=[])
+	df = DataFrame()
 
 	@showprogress for t in (1:n_treatments)
 		summary_stat::Function = treatments[t].summary_stat
 		for r = 1:n_replicates
 			param_values = draw_from_parameter_bundle(treatments[t].theta)
+
 			mp = treatments[t].metapopulation_generator(num_populations = param_values.num_populations, alpha=param_values.alpha)
+
 			abundance_matrix = zeros(Int64(ceil(treatments[t].simulation_parameters.number_of_timesteps/treatments[t].simulation_parameters.log_frequency)), mp.num_populations)
 			initial_condition = [rand(Uniform(0, param_values.carrying_capacity[p])) for p = 1:mp.num_populations]
 
 			treatment_instance::TreatmentInstance = TreatmentInstance(mp, treatments[t].dx_dt, treatments[t].simulation_parameters, param_values, abundance_matrix, initial_condition)
 			push!(treatments[t].instances, treatment_instance)
+
 			treatment_instance.abundance_matrix = run_dynamics(treatment_instance)
-			stat = summary_stat(treatment_instance.abundance_matrix)
-			push!(df.treatment, t)
-			push!(df.replicate, r)
-			push!(df.summary_stat, stat)
+
+			stat_df = summary_stat(treatment_instance, t, r)
+			df = vcat(df, stat_df)
+
+			if (treatments[t].log_abundances)
+				log_abundances(t, r, treatment_instance, filename=abundances_path)
+			end
 		end
 	end
 
@@ -144,4 +150,3 @@ function get_treatment(;num_populations=10)
 
     return Treatment(mp, dynamics_model, sim_params, param_bundle, PCC)
 end
-

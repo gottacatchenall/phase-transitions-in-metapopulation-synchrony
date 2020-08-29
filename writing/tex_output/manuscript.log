@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.5.24)  27 AUG 2020 19:54
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.5.24)  28 AUG 2020 13:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -669,7 +669,14 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip110
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count331
-) (tex_output/manuscript.aux)
+) (tex_output/manuscript.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
 \openout1 = `manuscript.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
@@ -794,27 +801,53 @@ Underfull \hbox (badness 1668) in paragraph at lines 108--116
 Missing character: There is no   in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no   in font [lmroman10-regular]:mapping=tex-text;!
  [5]
-File: ./figs/figure1.pdf Graphic file (type pdf)
-<use ./figs/figure1.pdf>
+File: ./figs/figure1.png Graphic file (type bmp)
+<./figs/figure1.png>
 
 Overfull \hbox (29.30634pt too wide) in paragraph at lines 211--213
  [][] 
  []
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 253--264
-\TU/lmr/m/n/10 and other fields (@ovaskainen_empirical_2008, @holmes_partial-differential_1994,
- []
+[6] [7] [8]
+File: ./figs/figure2.png Graphic file (type bmp)
+<./figs/figure2.png>
 
-[7] [8] [9]
-File: figs/figure4.pdf Graphic file (type pdf)
-<use figs/figure4.pdf>
-
-Overfull \hbox (29.30634pt too wide) in paragraph at lines 349--350
+Overfull \hbox (29.30634pt too wide) in paragraph at lines 324--325
 [][] 
  []
 
-[10] (tex_output/manuscript.bbl [11
+[9] [10]
+File: figs/figure3.png Graphic file (type bmp)
+<figs/figure3.png>
+
+Overfull \hbox (29.30634pt too wide) in paragraph at lines 353--354
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: figs/figure4.pdf Graphic file (type pdf)
+<use figs/figure4.pdf>
+
+Overfull \hbox (29.30634pt too wide) in paragraph at lines 359--360
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: figs/figure5.png Graphic file (type bmp)
+<figs/figure5.png>
+
+Overfull \hbox (29.30634pt too wide) in paragraph at lines 366--367
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11] [12] [13] (tex_output/manuscript.bbl [14
 
 ]
 Underfull \hbox (badness 2213) in paragraph at lines 172--182
@@ -851,7 +884,7 @@ Underfull \hbox (badness 1281) in paragraph at lines 185--196
 \TU/lmr/m/it/8 Ecology and Evolution\TU/lmr/m/n/8 , 8(10):1253–1264, 2017.  ISSN 2041-210X.  doi: $[][] [] [][][][] [] [][][][][][][][][][] []
  []
 
-[12]
+[15]
 Underfull \hbox (badness 1142) in paragraph at lines 250--258
 \TU/lmr/m/it/8 ogy, Evolution, and Systematics\TU/lmr/m/n/8 , 41(1):21–38, December 2010.  ISSN 1543-592X, 1545-2069.
  []
@@ -861,27 +894,31 @@ Underfull \hbox (badness 1521) in paragraph at lines 250--258
 \TU/lmr/m/n/8 doi: $[][] [] [][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]$.  URL [][]$[][][][] [] [] [] [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][] [] [][] [] [][][][] []
  []
 
-[13])
+[16])
 
 Package natbib Warning: There were undefined citations.
 
-[14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 364.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 364.
+[17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 380.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 380.
  (tex_output/manuscript.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 364.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 364.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 380.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 380.
 Package rerunfilecheck Info: File `manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: 25EF821DB13EE8155D2D5D816A1BE876;704.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 364.
+(rerunfilecheck)             Checksum: 47E358D2427CB209B610BBBA1725FA14;704.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 380.
  ) 
 Here is how much of TeX's memory you used:
- 25540 strings out of 479819
- 480621 string characters out of 5895846
+ 25615 strings out of 479819
+ 481912 string characters out of 5895846
  711650 words of memory out of 5000000
- 42198 multiletter control sequences out of 15000+600000
- 544115 words of font info for 88 fonts, out of 8000000 for 9000
+ 42257 multiletter control sequences out of 15000+600000
+ 546872 words of font info for 97 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 60i,11n,60p,664b,939s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,60p,664b,939s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tex_output/manuscript.xdv (14 pages, 285688 bytes).
+Output written on tex_output/manuscript.xdv (17 pages, 303768 bytes).

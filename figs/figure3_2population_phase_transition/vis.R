@@ -5,7 +5,7 @@ library(latex2exp)
 library(extrafont)
 loadfonts()
 ggthemr('fresh', spacing=2)
-cmuserif = p$`CMU Serif`$family
+cmuserif = pdfFonts()$`CMU Serif`$family
 thm = theme(panel.border = element_rect(colour = "#222222", fill = NA, size=0.75), 
             panel.spacing=unit(3, "lines"),
             text=element_text(family=cmuserif,size=20), axis.title.y = element_text(angle = 0, vjust=0.5),
@@ -37,7 +37,7 @@ convert_to_tex_label = function(string) {
 
 
 
-data %>% 
+plt = data %>% 
   group_by(treatment) %>%
   mutate(mean_pcc = mean(summary_stat)) %>%
   mutate(lowest_pcc = quantile(summary_stat, probs=c(0.025))) %>%
@@ -56,5 +56,10 @@ data %>%
   labs(title='', y=TeX("$PCC$"), x=TeX("$m$"), color=TeX("$\\sigma$"), fill=TeX("$\\sigma$")) +
   facet_grid(vars(sigma_facet), vars(lambda_facet), labeller =as_labeller(convert_to_tex_label, label_parsed)) + thm
  
+
+output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure3.png"
+ggsave(output_path, plot=plt, dpi=320, width = 12, height = 12, units = "in", device=png())
+
+
  # coord_cartesian(xlim = c(0.0,1.0)) 
 
