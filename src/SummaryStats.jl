@@ -18,7 +18,7 @@ function PCC(treatment_instance::TreatmentInstance, treatment_num::Int64, replic
         end
 
         mean_cc = s/ct
-        df = DataFrame(treatment=[treatment_num], replicate=[replicate_num], summary_stat=[mean_cc])
+        df = DataFrame(treatment=[treatment_num], replicate=[replicate_num], mean_cc=[mean_cc])
 
         return df
 end

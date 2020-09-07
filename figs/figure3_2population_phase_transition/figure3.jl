@@ -7,6 +7,7 @@ include(string(proj_folder, "./src/deps.jl"))
 output_dir_path = string(proj_folder , "figs/figure3_2population_phase_transition/output/")
 
 
+mkdir(output_dir_path)
 
 # _______________________________________________________________________________________
 #
@@ -35,6 +36,7 @@ param_dictionary = Dict(
                         "number_of_timesteps" => [300],
                         "metapopulation_generator" => [get_random_metapopulation],
                         "fixed_metapopulation" => [false],
+                        "summary_stat" => [PCC],
                         "log_abundances" => [false]
                     )
 
@@ -44,7 +46,6 @@ treatment_set = create_treatments(param_dictionary, replicates_per_treatment = 5
 
 df = run_treatments(treatment_set)
 
-mkdir(output_dir_path)
 
 CSV.write(string(output_dir_path, "treatment_set.csv"), df)
 CSV.write(string(output_dir_path, "metadata.csv"), treatment_set.metadata)

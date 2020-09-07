@@ -313,6 +313,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
 INPUT /usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
 INPUT /usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
 OUTPUT tex_output/manuscript.xdv
+INPUT tex_output/manuscript.toc
+INPUT tex_output/manuscript.toc
+OUTPUT tex_output/manuscript.toc
 INPUT ./figs/figure1.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
@@ -325,8 +328,10 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT ./figs/figure2.png
 INPUT figs/figure3.png
-INPUT figs/figure4.pdf
+INPUT figs/figure4.png
 INPUT figs/figure5.png
+INPUT figs/figure9.png
+INPUT figs/figure10.png
 INPUT tex_output/manuscript.bbl
 INPUT tex_output/manuscript.bbl
 INPUT tex_output/manuscript.aux

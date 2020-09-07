@@ -42,7 +42,8 @@ plt = data %>%
   mutate(lower_pcc = quantile(summary_stat, probs=c(0.25))) %>%
   mutate(higher_pcc = quantile(summary_stat, probs=c(0.75))) %>%
   mutate(highest_pcc = quantile(summary_stat, probs=c(0.975))) %>%
-  mutate(alpha_facet = paste("$\\alpha =$", alpha)) %>%
+  mutate(alpha_facet = paste("$\\alpha = ", alpha, "$", sep="")) %>%
+  mutate(alpha_facet = factor(alpha_facet, levels=c("$\\alpha = 0$", "$\\alpha = 10$", "$\\alpha = 20$","$\\alpha = 30$"))) %>%
   arrange(alpha) %>%
   ggplot(aes(migration_rate, summary_stat, group=factor(alpha), fill=factor(alpha))) + 
   geom_ribbon(aes(ymin=lower_pcc, ymax=higher_pcc), size=1,alpha=0.4) +
@@ -53,9 +54,17 @@ plt = data %>%
   geom_hline(aes(yintercept=1), linetype='dashed',color='black') +
   scale_x_continuous(limits = c(0.0,1), expand = c(0, 0), breaks = c(0, 0.25,0.5, 0.75, 1)) +
   labs(title='', y=TeX("$PCC$"), x=TeX("$m$"), color=TeX("$\\alpha$"), fill=TeX("$\\alpha$")) + 
-  facet_wrap(. ~ alpha_facet, labeller=as_labeller(convert_to_tex_label, label_parsed), ncol=2) +
+  facet_wrap(. ~ alpha_facet, ncol=2, labeller= as_labeller(convert_to_tex_label, label_parsed)) +
   thm + 
   coord_cartesian(xlim = c(0.0,1.0), ylim=c(0.0,1.0)) 
+
+
+d = seq(0, 1, by=0.01)
+alpha = rep(c(0, 10, 20, 30))
+
+
+exp_kern = exp(-1*d*alpha)
+
 
 output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure4.png"
 ggsave(output_path, plot=plt, dpi=320, width = 12, height = 8, units = "in", device=png())

@@ -22,7 +22,7 @@ convert_to_tex_label = function(string) {
 }
 
 plt1= data %>% 
-  filter(migration_rate == 0.5 | migration_rate==0.01 | migration_rate==0.1, num_populations==20) %>%
+  filter(num_populations==20) %>%
   group_by(radius,treatment) %>%
   mutate(mean_pcc=mean(pcc)) %>%
   mutate(m_facet=paste("$m =", migration_rate, "$")) %>%
@@ -31,6 +31,8 @@ plt1= data %>%
   geom_point(size=3,aes(shape=factor(alpha))) +
   geom_line() +
   scale_shape_manual(values = c(0, 1,5, 6)) + 
+  theme(aspect.ratio=1) +
+  ylim(0,1) +
   labs(x=TeX("$radius$"), y=TeX("$PCC$"), color=TeX("$\\alpha$"),shape=TeX("$\\alpha$"))  + 
   facet_wrap(. ~(m_facet), ncol=3, labeller = as_labeller(convert_to_tex_label, label_parsed)) + 
   thm 
@@ -39,20 +41,22 @@ output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figu
 ggsave(output_path, plot=plt1, dpi=320, width = 18, height = 10, units = "in", device=png())
 
 plt2 =  data %>% 
+  filter((num_populations) < 50) %>%
   group_by(radius,treatment) %>%
   mutate(mean_pcc=mean(pcc)) %>%
   mutate(m_facet=as.factor(paste("$m =", migration_rate, "$"))) %>%
   arrange(num_populations) %>%
   mutate(np_facet=paste("$N_p = ", num_populations, "$", sep="")) %>%
-  mutate(np_facet=factor(np_facet, levels=c("$N_p = 5$", "$N_p = 10$", "$N_p = 20$","$N_p = 40$")) ) %>%
+  mutate(np_facet=factor(np_facet, levels=c("$N_p = 5$", "$N_p = 10$", "$N_p = 20$","$N_p = 40$", "$N_p=80$"))) %>% 
   ggplot(aes(radius,mean_pcc, color=factor(alpha), group=alpha)) + 
   geom_point(size=1.5,aes(shape=factor(alpha))) +
   geom_line() +
   scale_shape_manual(values = c(0, 1,5, 6)) + 
   theme(aspect.ratio=1) + 
-  labs(x=TeX("$radius$"), y=TeX("$PCC$"), color=TeX("$\\alpha$"),shape=TeX("$\\alpha$"))  +  
-  facet_grid(vars(m_facet), vars(np_facet), labeller = as_labeller(convert_to_tex_label, label_parsed)) + 
-  thm + theme(axis.text.x = element_text(size=12))
+  facet_grid(vars(m_facet), vars(np_facet), labeller = as_labeller(convert_to_tex_label, label_parsed))+
+  thm + theme(axis.text.x = element_text(size=12)) +
+  labs(x=TeX("$radius$"), y=TeX("$PCC$"), color=TeX("$\\alpha$"),shape=TeX("$\\alpha$"))  
+  
 
 output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure10.png"
 ggsave(output_path, plot=plt2, dpi=320, width = 12, height = 14, units = "in", device=png())

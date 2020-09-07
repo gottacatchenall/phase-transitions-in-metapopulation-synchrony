@@ -20,11 +20,11 @@ mkdir(output_dir_path)
 # _______________________________________________________________________________________
 
 param_dictionary = Dict(
-                        "migration_rate"    => [0.001, 0.01, 0.1, 0.5, 0.9],
+                        "migration_rate"    => [0.001, 0.01, 0.1, 0.25, 0.5, 0.95],
                         "lambda"            => [1.0],
                         "sigma"             => [0.5],
                         "carrying_capacity" => [1.0],
-                        "num_populations" => [5,10,20,40],
+                        "num_populations" => [5,10,20,40,80],
                         "alpha"           => [0, 8, 16, 24],  # alpha is meaningless with two pops
                         "summary_stat" => [random_PCC_within_radius],
                         # _________________________________________________

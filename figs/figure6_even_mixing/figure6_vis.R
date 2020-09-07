@@ -17,25 +17,27 @@ data = read.csv('metadata.csv') %>% full_join(read.csv('treatment_set.csv'), by=
 
 
 
-data %>% 
+plt = data %>% 
+  group_by(num_populations, alpha) %>% 
+  mutate(max_pcc =(max(summary_stat))) %>%
+  ungroup() %>%
   group_by(num_populations, replicate, alpha) %>% 
-  filter(alpha==0) %>%
-  filter(abs(max(summary_stat)-summary_stat) < 0.01) %>%
   mutate(low = quantile(migration_rate,0.25), high=quantile(migration_rate, 0.75)) %>%
   mutate(lowest = quantile(migration_rate,0.025), highest=quantile(migration_rate, 0.975)) %>%
   ggplot(aes(num_populations,migration_rate, fill=factor(alpha)))  + 
   geom_ribbon(aes(ymin=lowest, ymax=highest), alpha=0.3) +
   geom_ribbon(aes(ymin=low, ymax=high), alpha=0.4) +
+  geom_point(aes(y=max_pcc, color=factor(alpha))) + 
   stat_function(fun = function(x) 1.0 - 1.0/x) + 
   labs(x=TeX("$N_p$"), y=TeX("$m$"))  + 
-  scale_x_continuous(breaks=seq(2,26,by=2), limits=c(2,25)) +
-  scale_y_continuous(breaks=c(0.5, 0.6,0.7,0.8,0.9,1.0), limits=c(0.5,1)) +
-  thm +
-  coord_cartesian(xlim = c(4,25), ylim=c(0.4,1)) 
-  
+  facet_wrap(. ~ alpha) + 
+  scale_x_continuous(breaks=seq(2,26,by=2), limits=c(2,26)) +
+  scale_y_continuous(breaks=c(0.5,0.6,0.7,0.8,0.9,1.0), limits=c(0.5,1)) +
+  thm
 
-output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure5.pdf"
-ggsave(output_path, plot=plt, dpi=320, width = 18, height = 8, units = "in", device=cairo_pdf)
+
+output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure6.png"
+ggsave(output_path, plot=plt, dpi=320, width = 18, height = 8, units = "in", device=png())
 
 #+ 
  # coord_cartesian(xlim = c(0.0,1.0)) 

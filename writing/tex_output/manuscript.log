@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.5.24)  28 AUG 2020 13:14
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.5.24)  5 SEP 2020 16:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -649,13 +649,13 @@ Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 \f@nch@O@olf=\skip105
 \f@nch@O@orf=\skip106
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 60.
+Package hyperref Info: Option `breaklinks' set `true' on input line 64.
 
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 60.
+(hyperref)                setting the option has no effect on input line 64.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 60.
+Package hyperref Info: Option `colorlinks' set `true' on input line 64.
 (/usr/share/texlive/texmf-dist/tex/latex/preprint/authblk.sty
 Package: authblk 2001/02/27 1.3 (PWD)
 \affilsep=\skip107
@@ -671,6 +671,18 @@ LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count331
 ) (tex_output/manuscript.aux
 
+LaTeX Warning: Label `simulating-a-phase-transition-across-a-migration-gradient' multiply defined.
+
+
+LaTeX Warning: Label `simulating-a-phase-transition-across-a-migration-gradient' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
 LaTeX Warning: Label `' multiply defined.
 
 
@@ -679,30 +691,30 @@ LaTeX Warning: Label `' multiply defined.
 )
 \openout1 = `manuscript.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 79.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -747,7 +759,7 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box79
-Package hyperref Info: Link coloring ON on input line 75.
+Package hyperref Info: Link coloring ON on input line 79.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -757,9 +769,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count332
 )
-LaTeX Info: Redefining \ref on input line 75.
-LaTeX Info: Redefining \pageref on input line 75.
-LaTeX Info: Redefining \nameref on input line 75.
+LaTeX Info: Redefining \ref on input line 79.
+LaTeX Info: Redefining \pageref on input line 79.
+LaTeX Info: Redefining \nameref on input line 79.
  (tex_output/manuscript.out) (tex_output/manuscript.out)
 \@outlinefile=\write4
 \openout4 = `manuscript.out'.
@@ -769,68 +781,74 @@ Dictionary: translator-basic-dictionary, Language: English
 ) (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 75.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
 File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 ) [1
 
-]
+] (tex_output/manuscript.toc)
+\tf@toc=\write5
+\openout5 = `manuscript.toc'.
 
-Package natbib Warning: Citation `lv' on page 2 undefined on input line 90.
-
-
-Package natbib Warning: Citation `@albert_applying_2017' on page 2 undefined on input line 104.
-
-
-Package natbib Warning: Citation `@urban_landscape_2001' on page 2 undefined on input line 104.
-
-[2
+ [2
 
 ]
-Underfull \hbox (badness 1668) in paragraph at lines 108--116
+
+Package natbib Warning: Citation `lv' on page 3 undefined on input line 95.
+
+
+Package natbib Warning: Citation `@albert_applying_2017' on page 3 undefined on input line 109.
+
+
+Package natbib Warning: Citation `@urban_landscape_2001' on page 3 undefined on input line 109.
+
+[3
+
+]
+Underfull \hbox (badness 1668) in paragraph at lines 113--121
 \TU/lmr/m/n/10 of metapopulation extinction (@lande_risks_1993, @lande_extinction_1998). This
  []
 
-[3] [4]
+[4] [5]
 Missing character: There is no   in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no   in font [lmroman10-regular]:mapping=tex-text;!
- [5]
+ [6]
 File: ./figs/figure1.png Graphic file (type bmp)
 <./figs/figure1.png>
 
-Overfull \hbox (29.30634pt too wide) in paragraph at lines 211--213
+Overfull \hbox (29.30634pt too wide) in paragraph at lines 214--216
  [][] 
  []
 
-[6] [7] [8]
+[7] [8] [9]
 File: ./figs/figure2.png Graphic file (type bmp)
 <./figs/figure2.png>
 
-Overfull \hbox (29.30634pt too wide) in paragraph at lines 324--325
+Overfull \hbox (29.30634pt too wide) in paragraph at lines 327--328
 [][] 
  []
 
-[9] [10]
+[10] [11]
 File: figs/figure3.png Graphic file (type bmp)
 <figs/figure3.png>
 
-Overfull \hbox (29.30634pt too wide) in paragraph at lines 353--354
+Overfull \hbox (29.30634pt too wide) in paragraph at lines 363--364
 [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: figs/figure4.pdf Graphic file (type pdf)
-<use figs/figure4.pdf>
+File: figs/figure4.png Graphic file (type bmp)
+<figs/figure4.png>
 
-Overfull \hbox (29.30634pt too wide) in paragraph at lines 359--360
+Overfull \hbox (29.30634pt too wide) in paragraph at lines 369--370
 [][] 
  []
 
@@ -840,14 +858,34 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: figs/figure5.png Graphic file (type bmp)
 <figs/figure5.png>
 
-Overfull \hbox (29.30634pt too wide) in paragraph at lines 366--367
+Overfull \hbox (29.30634pt too wide) in paragraph at lines 376--377
 [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11] [12] [13] (tex_output/manuscript.bbl [14
+File: figs/figure9.png Graphic file (type bmp)
+<figs/figure9.png>
+
+Overfull \hbox (29.30634pt too wide) in paragraph at lines 391--392
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: figs/figure10.png Graphic file (type bmp)
+<figs/figure10.png>
+
+Overfull \hbox (29.30634pt too wide) in paragraph at lines 400--401
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12] [13] [14] [15] [16] [17] (tex_output/manuscript.bbl [18
 
 ]
 Underfull \hbox (badness 2213) in paragraph at lines 172--182
@@ -884,7 +922,7 @@ Underfull \hbox (badness 1281) in paragraph at lines 185--196
 \TU/lmr/m/it/8 Ecology and Evolution\TU/lmr/m/n/8 , 8(10):1253–1264, 2017.  ISSN 2041-210X.  doi: $[][] [] [][][][] [] [][][][][][][][][][] []
  []
 
-[15]
+[19]
 Underfull \hbox (badness 1142) in paragraph at lines 250--258
 \TU/lmr/m/it/8 ogy, Evolution, and Systematics\TU/lmr/m/n/8 , 41(1):21–38, December 2010.  ISSN 1543-592X, 1545-2069.
  []
@@ -894,31 +932,31 @@ Underfull \hbox (badness 1521) in paragraph at lines 250--258
 \TU/lmr/m/n/8 doi: $[][] [] [][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]$.  URL [][]$[][][][] [] [] [] [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][] [] [][] [] [][][][] []
  []
 
-[16])
+[20])
 
 Package natbib Warning: There were undefined citations.
 
-[17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 380.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 380.
+[21]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 417.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 417.
  (tex_output/manuscript.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 380.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 380.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 417.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 417.
 Package rerunfilecheck Info: File `manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: 47E358D2427CB209B610BBBA1725FA14;704.
+(rerunfilecheck)             Checksum: 464F9992323566C5465AC0CDD55F817E;1023.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 380.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 417.
  ) 
 Here is how much of TeX's memory you used:
- 25615 strings out of 479819
- 481912 string characters out of 5895846
- 711650 words of memory out of 5000000
- 42257 multiletter control sequences out of 15000+600000
+ 25649 strings out of 479819
+ 482488 string characters out of 5895846
+ 712691 words of memory out of 5000000
+ 42286 multiletter control sequences out of 15000+600000
  546872 words of font info for 97 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  60i,12n,60p,664b,939s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tex_output/manuscript.xdv (17 pages, 303768 bytes).
+Output written on tex_output/manuscript.xdv (21 pages, 323736 bytes).

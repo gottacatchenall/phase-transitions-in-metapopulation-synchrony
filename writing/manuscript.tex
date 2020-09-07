@@ -18,6 +18,10 @@
 \usepackage{float}
 \floatplacement{figure}{h}
 
+
+\setcounter{secnumdepth}{3}
+\addtocontents{toc}{\setcounter{tocdepth}{2}}
+
 \usepackage{sectsty}
 \usepackage[normalem]{ulem}
 \sectionfont{\rmfamily\bfseries\large}
@@ -62,7 +66,7 @@
 
 \usepackage{authblk}
 
-\title{Phase Transitions in Landscape Connectivity}
+\title{Critical Transitions in Metapopulation Connectivity}
 \author[1,2]{M.D. Catchen}
 \author[1]{S.M. Flaxman}
 \affil[1]{\small{Department of Ecology and Evolutionary Biology, University of Colorado at Boulder}}
@@ -80,7 +84,8 @@ dang ol absrtact here
 
 \end{abstract}
 \clearpage
-
+\tableofcontents
+\clearpage
 \section{Introduction}
 
 Landscape connectivity intro
@@ -113,8 +118,6 @@ suggests that promoting functional landscape connectivity can help
 mediate the probability of extinction for species facing significant
 habitat loss. We suggest using simulation models, such as those
 presented here, to aid in decision making regarding corridor placement.
-
-\section{What are phase transitions?}
 
 
 \hypertarget{what-are-phase-transitions}{%
@@ -301,13 +304,13 @@ be the stochastic logistic model (see previous section). Combining this
 with the diffusion model yields the SDE
 
 \begin{equation} \label{diffusion_model}
-  d \boldsymbol{N} = \boldsymbol{I} (D^T \boldsymbol{N})\bigg(\boldsymbol{I}\boldsymbol{K}^{-1}(\boldsymbol{K}-D^T \boldsymbol{N})\bigg) d\boldsymbol{t} + \boldsymbol{I}\boldsymbol{\sigma} \boldsymbol{N} \ d\boldsymbol{W}
+    dN_i = \sum_j \bigg[ D_{ji} \lambda_i N_i \bigg(1-\frac{N_i}{K_i}\bigg)  \bigg] dt + \sigma N_i dW_i
 \end{equation}
 
 which will be the primary object of study in this paper.
 
 \hypertarget{measuring-synchrony}{%
-\subsubsection{Measuring Synchrony}\label{measuring-synchrony}}
+\subsection{Measuring Synchrony}\label{measuring-synchrony}}
 
 As described above, measures of correlation in space and time are often
 used in the study of phase transitions. When the order parameter gains
@@ -328,7 +331,7 @@ and panel (b) shows an example of high PCC.
 \end{figure}
 
 \hypertarget{simulating-a-phase-transition-across-a-migration-gradient}{%
-\subsubsection{Simulating a Phase Transition across a Migration
+\subsection{Simulating a Phase Transition across a Migration
 Gradient}\label{simulating-a-phase-transition-across-a-migration-gradient}}
 
 Now we consider how synchrony changes as a function of \(p_m\). Each run
@@ -347,27 +350,61 @@ crosscorrelation for that replicate, \(PCC\), and start the next
 replicate.
 
 
+\hypertarget{phase-transitions-across-a-migration-gradient}{%
+\section{Synchrony Across a Migration Gradient}\label{phase-transitions-across-a-migration-gradient}}
+
+Probability distribution of synchrony in a set of populations $L$ given $\alpha$ and $m$.
+
+There is symmetry in these distributions around $m = 1 - \frac{1}{|L|}$
+
 
 \pagebreak
-\begin{figure}
+\begin{figure}[h]
     \includegraphics[width=15cm]{figs/figure3}
     \caption{}
     \label{}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
     \includegraphics[width=15cm]{figs/figure4}
     \caption{}
     \label{}
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[h]
     \includegraphics[width=15cm]{figs/figure5}
     \caption{}
     \label{}
 \end{figure}
 
+
+\hypertarget{critical-transitions-across-space}{%
+\section{Critical Transitions in Synchrony Across Space}\label{critical-transitions-across-space}}
+
+\hypertarget{simulating-a-phase-transition-across-a-migration-gradient}{%
+\subsection{Landscape Connectivity}\label{simulating-a-phase-transition-across-a-migration-gradient}}
+
+
+
+\begin{figure}
+    \includegraphics[width=15cm]{figs/figure9}
+    \caption{}
+    \label{}
+\end{figure}
+
+\hypertarget{simulating-a-phase-transition-across-a-migration-gradient}{%
+\subsection{Landscape Subdivision}\label{simulating-a-phase-transition-across-a-migration-gradient}}
+
+\begin{figure}
+    \includegraphics[width=15cm]{figs/figure10}
+    \caption{}
+    \label{}
+\end{figure}
+
+
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
 
 \clearpage
 {

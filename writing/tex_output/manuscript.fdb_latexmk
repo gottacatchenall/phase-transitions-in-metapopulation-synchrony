@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex tex_output/manuscript"] 1598645602 "tex_output/manuscript.aux" "tex_output/manuscript.bbl" "tex_output/manuscript" 1598645672
+["bibtex tex_output/manuscript"] 1598985234 "tex_output/manuscript.aux" "tex_output/manuscript.bbl" "tex_output/manuscript" 1599361410
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
   "references.bib" 1598550110 161560 cb3aa22c3bc94ff166cd62d6bc9c3a26 ""
-  "tex_output/manuscript.aux" 1598645665 7957 87fa045fbf70c06253bdea12aed9c613 "xelatex"
+  "tex_output/manuscript.aux" 1599347729 9612 0f8edd7432792f2b3808287c4897240d "xelatex"
   (generated)
-  "tex_output/manuscript.bbl"
   "tex_output/manuscript.blg"
-["xdvipdfmx"] 1598645665 "tex_output/manuscript.xdv" "tex_output/manuscript.pdf" "tex_output/manuscript" 1598645672
-  "tex_output/manuscript.xdv" 1598645665 303768 6060ddf7b4e58a73213da6bb60827dee "xelatex"
+  "tex_output/manuscript.bbl"
+["xdvipdfmx"] 1599361400 "tex_output/manuscript.xdv" "tex_output/manuscript.pdf" "tex_output/manuscript" 1599361410
+  "tex_output/manuscript.xdv" 1599347729 323736 15d0e60aaa8e16dc290803d73267fc33 "xelatex"
   (generated)
   "tex_output/manuscript.pdf"
-["xelatex"] 1598645664 "manuscript.tex" "tex_output/manuscript.xdv" "manuscript" 1598645672
+["xelatex"] 1599347729 "manuscript.tex" "tex_output/manuscript.xdv" "manuscript" 1599361410
   "/etc/texmf/web2c/texmf.cnf" 1589731108 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -199,17 +199,21 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1590365170 4645851 cb422dece38fc68da73561c130383d2c ""
-  "figs/figure1.png" 1598643246 1582157 caf00b3029cfcab4ab2da16c76716a92 ""
+  "figs/figure1.png" 1598899149 1202323 5df18720265962da490e5f774628a307 ""
+  "figs/figure10.png" 1598892728 903401 74fd2bd62ac643bc3003d697f17cc566 ""
   "figs/figure2.png" 1598643177 1151349 ac914f44fb58c39d046ba8d409d95ab9 ""
   "figs/figure3.png" 1598643910 319924 fccc00ca8aa08fe5f88e7124185509dc ""
-  "figs/figure4.pdf" 1598589914 23154 59271cf9994dd8cf77cc6290de03325b ""
-  "figs/figure5.png" 1598644102 266458 5f7ff101b2e96c5b8e8dea486a17fa9c ""
-  "manuscript.tex" 1598645663 18553 b9ff7f9452c65a2a28fdd0de2b0756c2 ""
-  "tex_output/manuscript.aux" 1598645665 7957 87fa045fbf70c06253bdea12aed9c613 "xelatex"
-  "tex_output/manuscript.bbl" 1598645602 16585 469a993c626978fbff3204c28cbd1c79 "bibtex tex_output/manuscript"
-  "tex_output/manuscript.out" 1598645665 704 47e358d2427cb209b610bbba1725fa14 "xelatex"
+  "figs/figure4.png" 1598898107 258584 d2c3905819a317796b9559dd3a32f0d5 ""
+  "figs/figure5.png" 1598657035 266458 5f7ff101b2e96c5b8e8dea486a17fa9c ""
+  "figs/figure9.png" 1599347337 611641 0f47894b8221e9af7f779e8c12039c3c ""
+  "manuscript.tex" 1599347725 19623 1e095f7a23f62e322c0f8c2115d3b09c ""
+  "tex_output/manuscript.aux" 1599347729 9612 0f8edd7432792f2b3808287c4897240d "xelatex"
+  "tex_output/manuscript.bbl" 1598985234 16585 469a993c626978fbff3204c28cbd1c79 "bibtex tex_output/manuscript"
+  "tex_output/manuscript.out" 1599347729 1023 464f9992323566c5465ac0cdd55f817e "xelatex"
+  "tex_output/manuscript.toc" 1599347729 1197 06bb13de129742c42d17e034f8924cec "xelatex"
   (generated)
-  "tex_output/manuscript.aux"
   "tex_output/manuscript.log"
-  "tex_output/manuscript.xdv"
   "tex_output/manuscript.out"
+  "tex_output/manuscript.aux"
+  "tex_output/manuscript.toc"
+  "tex_output/manuscript.xdv"

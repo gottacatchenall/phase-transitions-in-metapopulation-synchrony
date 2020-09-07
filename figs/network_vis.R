@@ -1,4 +1,4 @@
-elibrary(ggplot2)
+library(ggplot2)
 library(ggnet)
 library(gridExtra)
 library(tikzDevice)
@@ -10,12 +10,12 @@ setwd("~/phase_transitions_in_metapopulation_synchrony/figs")
 loadfonts()
 
 data(mtcars)
-mtcars %>% ggplot(aes(x=mpg, y=disp)) + geom_col(aes(col=cyl)) + 
+mtcars %>% ggplot(aes(x=mpg, y=disp)) + geom_col(aes(col=cyl)) +
     theme(text  = element_text(size=10, family=p$`CMU Serif`$family)) + ggtitle("for the boys")
 
 
 cmuserif = p$`CMU Serif`$family
-## ============================================ 
+## ============================================
 ## DISPERSAL KERNEL PLOTTING / FIG 1
 ## ============================================
 exp_kern = function(alpha, d_ij){
@@ -30,45 +30,45 @@ gauss_kern = function(alpha, d_ij){
 get_pop_points = function(x_vals, y_vals, alpha, mig_prop, kernel=exp_kern, kernel_name="Exp.", xaxis=F, yaxis=F){
     # make df with all pairwise and group by indiv pairwise val
     df = data.frame(matrix(ncol=5))
-    
+
     line_ct = 1
-    grp_ct = 0 
-    
+    grp_ct = 0
+
     # make a dis potential first
-    
+
     npops = length(x_vals)
-    
+
     dispersal_potential = matrix(nrow=npops, ncol=npops)
     for (pt_ct in seq(1, n_pops)){
         s = 0
         for (pt_ct2 in seq(1, n_pops)){
-            x1 = x_vals[pt_ct] 
-            y1 = y_vals[pt_ct] 
-            x2 = x_vals[pt_ct2] 
-            y2 = y_vals[pt_ct2] 
-            
+            x1 = x_vals[pt_ct]
+            y1 = y_vals[pt_ct]
+            x2 = x_vals[pt_ct2]
+            y2 = y_vals[pt_ct2]
+
             dist = sqrt((x2-x1)^2 + (y2-y1)^2)
-            
+
             dispersal_potential[pt_ct, pt_ct2] = kernel(alpha, dist)
-            
-            s = s + dispersal_potential[pt_ct, pt_ct2] 
+
+            s = s + dispersal_potential[pt_ct, pt_ct2]
         }
         for (pt_ct2 in seq(1, n_pops)){
             dispersal_potential[pt_ct, pt_ct2]  = dispersal_potential[pt_ct, pt_ct2]  / s
         }
     }
-    
+
     for (pt_ct in seq(1, n_pops)){
         for (pt_ct2 in seq(1, n_pops)){
-            x1 = x_vals[pt_ct] 
-            y1 = y_vals[pt_ct] 
-            x2 = x_vals[pt_ct2] 
-            y2 = y_vals[pt_ct2] 
+            x1 = x_vals[pt_ct]
+            y1 = y_vals[pt_ct]
+            x2 = x_vals[pt_ct2]
+            y2 = y_vals[pt_ct2]
             #opac =1
               opac = 0.1 + dispersal_potential[pt_ct, pt_ct2] * 5
               width = dispersal_potential[pt_ct, pt_ct2] * 8
-              
-              
+
+
               df[line_ct,] = c(x1,y1, grp_ct, opac, width)
               line_ct = line_ct + 1
               df[line_ct,] = c(x2,y2, grp_ct, opac, width)
@@ -77,44 +77,44 @@ get_pop_points = function(x_vals, y_vals, alpha, mig_prop, kernel=exp_kern, kern
         }
     }
     colnames(df) = c("x", "y", "grp", "opac", "width")
-    
-    plt = ggplot(df, aes(x,y, group=grp)) + 
-        geom_line(alpha=df$opac, size=df$width, color='#222222')+ 
+
+    plt = ggplot(df, aes(x,y, group=grp)) +
+        geom_line(alpha=df$opac, size=df$width, color='#222222')+
         theme(aspect.ratio=1, text=element_text(cmuserif)) +
         theme(axis.text.x = element_text(size=14),
               axis.text.y = element_text(size=14),
               axis.title  = element_text(size=16)) +
-        theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), panel.border = element_rect(fill=NA, size=1, colour = "#222222"))+ 
+        theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), panel.border = element_rect(fill=NA, size=1, colour = "#222222"))+
         geom_point(shape=1, size=3, color='black') + geom_point(alpha=0.3, size=2, color='dodgerblue')
-    
-    
-    if (xaxis==F){ 
-        plt = plt + scale_x_continuous(breaks=c(0,1)) 
+
+
+    if (xaxis==F){
+        plt = plt + scale_x_continuous(breaks=c(0,1))
     }
-    
+
     if (yaxis == F){
         plt = plt + scale_y_continuous(breaks=c(0,1))
     }
-    
+
     if (xaxis == T){
         plt = plt +
-        scale_x_continuous(breaks=c(0,1)) +  
-        labs(x=TeX("$x$")) 
+        scale_x_continuous(breaks=c(0,1)) +
+        labs(x=TeX("$x$"))
     }
     if (yaxis == T){
         plt = plt + scale_y_continuous(breaks=c(0,1)) + labs(y=TeX("$y$"))
     }
     title_exp = (sprintf("%s Kernel, $\\alpha = %d$", kernel_name, alpha))
     plt = plt + labs(title=TeX(title_exp))
-    
-    
+
+
     return(plt + coord_cartesian(xlim=c(0,1), ylim=c(0,1)))
 }
 #tikz(file = "~/phase_transitions_in_metapopulation_synchrony/writing/figure0.tex", width = 12, height = 8, standAlone = T)
 
 n_pops = 20
 
-x_vals = runif(n_pops, 0, 1)    
+x_vals = runif(n_pops, 0, 1)
 y_vals = runif(n_pops, 0, 1)
 
 plt1 = get_pop_points(x_vals, y_vals, 2, 1.5, kernel=exp_kern,yaxis=T)

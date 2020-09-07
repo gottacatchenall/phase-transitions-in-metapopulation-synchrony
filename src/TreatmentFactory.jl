@@ -80,12 +80,18 @@ function create_treatments(param_dict::Dict; replicates_per_treatment::Int64 = 5
 		sigma_dist = Parameter(sigma_distribution, dimensionality)
 		carrying_cap_dist = Parameter(carrying_capacity_distribution, dimensionality)
 
-		param_bundle = StochasticLogisticParameterBundle(num_pops, alpha, m_dist, lambda_dist,sigma_dist, carrying_cap_dist)
+		param_bundle = StochasticLogisticParameterBundle(num_pops, alpha, m_dist, lambda_dist, sigma_dist, carrying_cap_dist)
 
 		dynamics_model = StochasticLogisticWDiffusion()
 		sim_params = SimulationParameters(metadata.number_of_timesteps[t], 0.1, 10, false)
 
-		tr = Treatment(metadata.metapopulation_generator[t], dynamics_model, sim_params, param_bundle, metadata.summary_stat[t], metadata.log_abundances[t], [])
+		if (metadata.fixed_metapopulation[t])
+
+		end
+
+		mp = metadata.metapopulation_generator[t](num_populations=num_pops, alpha=alpha)
+
+		tr = Treatment(mp, dynamics_model, sim_params, param_bundle, metadata.summary_stat[t], metadata.log_abundances[t], [])
 		push!(treatments, tr)
 	end
 
@@ -111,8 +117,7 @@ function run_treatments(treatment_set::TreatmentSet; abundances_path = "./abunda
 		for r = 1:n_replicates
 			param_values = draw_from_parameter_bundle(treatments[t].theta)
 
-			mp = treatments[t].metapopulation_generator(num_populations = param_values.num_populations, alpha=param_values.alpha)
-
+			mp = treatments[t].metapopulation_generator
 			abundance_matrix = zeros(Int64(ceil(treatments[t].simulation_parameters.number_of_timesteps/treatments[t].simulation_parameters.log_frequency)), mp.num_populations)
 			initial_condition = [rand(Uniform(0, param_values.carrying_capacity[p])) for p = 1:mp.num_populations]
 

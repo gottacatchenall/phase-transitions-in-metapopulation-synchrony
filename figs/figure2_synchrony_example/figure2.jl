@@ -24,7 +24,7 @@ param_dictionary = Dict(
                         "lambda"            => [1.0],
                         "sigma"             => [0.5],
                         "carrying_capacity" => [1.0],
-                        "num_populations" => [2, 8],
+                        "num_populations" => [5],
                         "alpha"           => [0],  # alpha is meaningless with two pops
 
                         # _________________________________________________
