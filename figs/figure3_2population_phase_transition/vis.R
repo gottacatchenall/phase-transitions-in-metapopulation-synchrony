@@ -1,11 +1,11 @@
-setwd("~/phase_transitions_in_metapopulation_synchrony/figs/figure3_2population_phase_transition/output")
+setwd("~/phase-transitions-in-metapopulation-synchrony/figs/figure3_2population_phase_transition/output")
 library(tidyverse)
 library(ggthemr)
 library(latex2exp)
 library(extrafont)
 loadfonts()
 ggthemr('fresh', spacing=2)
-cmuserif = pdfFonts()$`CMU Serif`$family
+cmuserif = pdfFonts()$`CM Roman`$family
 thm = theme(panel.border = element_rect(colour = "#222222", fill = NA, size=0.75),
             panel.spacing=unit(3, "lines"),
             text=element_text(family=cmuserif,size=20), axis.title.y = element_text(angle = 0, vjust=0.5),
@@ -20,8 +20,7 @@ data = read.csv('metadata.csv') %>% full_join(read.csv('treatment_set.csv'), by=
 data %>%
   group_by(replicate) %>%
   ggplot(aes(migration_rate, mean_cc, group=(replicate) )) +
-  geom_point(alpha=0.2, size=1.5) +
-  theme_minimal() +
+  geom_point(alpha=0.1, size=1.5) +
   scale_x_continuous(limits = c(0.0,1), expand = c(0, 0), breaks = c(0.0, 0.25 ,0.5, 0.75, 1.0)) +
   labs(title='', y=TeX("$PCC$"), x=TeX("$m$"), color=TeX("$\\alpha$")) +
   thm +
@@ -54,6 +53,7 @@ plt = data %>%
   labs(title='', y=TeX("$PCC$"), x=TeX("$m$"), color=TeX("$\\sigma$"), fill=TeX("$\\sigma$")) +
   facet_grid(vars(sigma_facet), vars(lambda_facet), labeller =as_labeller(convert_to_tex_label, label_parsed)) + thm
 
+plt
 
 output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure3.png"
 ggsave(output_path, plot=plt, dpi=320, width = 12, height = 12, units = "in", device=png())

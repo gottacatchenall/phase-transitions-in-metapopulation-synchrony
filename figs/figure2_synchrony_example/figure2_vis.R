@@ -1,4 +1,4 @@
-setwd("~/phase_transitions_in_metapopulation_synchrony/figs/figure2_synchrony_example/output")
+setwd("~/phase-transitions-in-metapopulation-synchrony/figs/figure2_synchrony_example/output")
 library(tidyverse)
 library(ggthemr)
 library(latex2exp)
@@ -33,6 +33,8 @@ plt = data %>%
     geom_hline(aes(yintercept=1.0) ,linetype="dashed", color='black') + 
     thm
 
+
+plt
 
 
 output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure2.png"

@@ -21,3 +21,8 @@ function get_random_metapopulation(;num_populations::Int64=10, dimensions::Int64
 
     return(Metapopulation(num_populations, populations, get_dispersal_potential(coordinates, kernel, alpha)))
 end
+
+
+function get_coordinates(mp::Metapopulation)
+    return [metapopulation.populations[p].coordinate for p = 1:metapopulation.num_populations]
+end

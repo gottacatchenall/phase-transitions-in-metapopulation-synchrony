@@ -1,10 +1,10 @@
-setwd("~/phase_transitions_in_metapopulation_synchrony/figs/figure9_variable_scales/output")
+setwd("~/phase-transitions-in-metapopulation-synchrony/figs/figure9_variable_scales/output")
 library(tidyverse)
 library(ggthemr)
 library(latex2exp)
 library(extrafont)
 loadfonts()
-ggthemr('fresh', spacing=3)
+ggthemr('fresh', spacing=3, layout='scientific')
 cmuserif = pdfFonts()$`CMU Serif`$family
 thm = theme(panel.border = element_rect(colour = "#222222", fill = NA, size=0.75), 
             panel.spacing=unit(3, "lines"),
@@ -37,7 +37,7 @@ plt1= data %>%
   facet_wrap(. ~(m_facet), ncol=3, labeller = as_labeller(convert_to_tex_label, label_parsed)) + 
   thm 
 
-output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure9.png"
+output_path = "~/phase-transitions-in-metapopulation-synchrony/writing/figs/figure9.png"
 ggsave(output_path, plot=plt1, dpi=320, width = 18, height = 10, units = "in", device=png())
 
 plt2 =  data %>% 
@@ -58,7 +58,7 @@ plt2 =  data %>%
   labs(x=TeX("$radius$"), y=TeX("$PCC$"), color=TeX("$\\alpha$"),shape=TeX("$\\alpha$"))  
   
 
-output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure10.png"
+output_path = "~/phase-transitions-in-metapopulation-synchrony/writing/figs/figure10.png"
 ggsave(output_path, plot=plt2, dpi=320, width = 12, height = 14, units = "in", device=png())
 
 

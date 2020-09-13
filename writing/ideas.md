@@ -1,8 +1,11 @@
 # Metapopulation Synchrony Paper
 - Different Distributions of $m$, $k$,  and $\lambda$ across pops to create source-sink dynamics
 - Comparing modularity of synchrony to eigenvalue centrality
+  - mean synchrony for each population compared with every other
+  - compare with measures of centrality
 - How does synchrony change MTE?
 - Use an SBM to measure modular stucture of communities from synchrony data
+
 
 # Software Paper
 - Estimate MTE from data

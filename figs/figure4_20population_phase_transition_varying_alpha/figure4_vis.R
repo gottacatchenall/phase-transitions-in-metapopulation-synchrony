@@ -1,11 +1,11 @@
-setwd("~/phase_transitions_in_metapopulation_synchrony/figs/figure4_20population_phase_transition_varying_alpha/output")
+setwd("~/phase-transitions-in-metapopulation-synchrony/figs/figure4_20population_phase_transition_varying_alpha/output")
 library(tidyverse)
 library(ggthemr)
 library(latex2exp)
 library(extrafont)
 loadfonts()
 ggthemr('fresh', spacing=3)
-cmuserif = pdfFonts()$`CMU Serif`$family
+cmuserif = pdfFonts()$`CM Roman`$family
 thm = theme(panel.border = element_rect(colour = "#222222", fill = NA, size=0.75), 
             panel.spacing=unit(3, "lines"),
             text=element_text(family=cmuserif,size=20), axis.title.y = element_text(angle = 0, vjust=0.5),
@@ -37,18 +37,18 @@ convert_to_tex_label = function(string) {
 
 plt = data %>% 
   group_by(treatment) %>%
-  mutate(mean_pcc = mean(summary_stat)) %>%
-  mutate(lowest_pcc = quantile(summary_stat, probs=c(0.025))) %>%
-  mutate(lower_pcc = quantile(summary_stat, probs=c(0.25))) %>%
-  mutate(higher_pcc = quantile(summary_stat, probs=c(0.75))) %>%
-  mutate(highest_pcc = quantile(summary_stat, probs=c(0.975))) %>%
+  mutate(mean_pcc = mean(mean_cc)) %>%
+  mutate(lowest_pcc = quantile(mean_cc, probs=c(0.025))) %>%
+  mutate(lower_pcc = quantile(mean_cc, probs=c(0.25))) %>%
+  mutate(higher_pcc = quantile(mean_cc, probs=c(0.75))) %>%
+  mutate(highest_pcc = quantile(mean_cc, probs=c(0.975))) %>%
   mutate(alpha_facet = paste("$\\alpha = ", alpha, "$", sep="")) %>%
   mutate(alpha_facet = factor(alpha_facet, levels=c("$\\alpha = 0$", "$\\alpha = 10$", "$\\alpha = 20$","$\\alpha = 30$"))) %>%
   arrange(alpha) %>%
-  ggplot(aes(migration_rate, summary_stat, group=factor(alpha), fill=factor(alpha))) + 
+  ggplot(aes(migration_rate, mean_cc, group=factor(alpha), fill=factor(alpha))) + 
   geom_ribbon(aes(ymin=lower_pcc, ymax=higher_pcc), size=1,alpha=0.4) +
   geom_line(aes(y=mean_pcc, color=factor(alpha)), size=0.5, linetype='dashed') +
-  geom_ribbon(aes(ymin=lowest_pcc, ymax=highest_pcc), size=1,alpha=0.4) +
+  geom_ribbon(aes(ymin=lowest_pcc, ymax=highesst_pcc), size=1,alpha=0.4) +
   theme_minimal() +
   theme(aspect.ratio = 1, legend.position = 'none') + 
   geom_hline(aes(yintercept=1), linetype='dashed',color='black') +
@@ -58,6 +58,7 @@ plt = data %>%
   thm + 
   coord_cartesian(xlim = c(0.0,1.0), ylim=c(0.0,1.0)) 
 
+plt
 
 d = seq(0, 1, by=0.01)
 alpha = rep(c(0, 10, 20, 30))

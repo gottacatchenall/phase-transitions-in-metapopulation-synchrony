@@ -1,4 +1,4 @@
-setwd("~/phase_transitions_in_metapopulation_synchrony/figs/figure6_even_mixing/output")
+setwd("~/phase-transitions-in-metapopulation-synchrony/figs/figure6_even_mixing/output")
 library(tidyverse)
 library(ggthemr)
 library(latex2exp)
@@ -19,21 +19,24 @@ data = read.csv('metadata.csv') %>% full_join(read.csv('treatment_set.csv'), by=
 
 plt = data %>% 
   group_by(num_populations, alpha) %>% 
-  mutate(max_pcc =(max(summary_stat))) %>%
+  mutate(max_pcc = (max(mean_cc))) %>%
+  filter(abs(mean_cc - max_pcc) < 0.01) %>%
   ungroup() %>%
-  group_by(num_populations, replicate, alpha) %>% 
+  group_by(num_populations, alpha) %>% 
   mutate(low = quantile(migration_rate,0.25), high=quantile(migration_rate, 0.75)) %>%
   mutate(lowest = quantile(migration_rate,0.025), highest=quantile(migration_rate, 0.975)) %>%
   ggplot(aes(num_populations,migration_rate, fill=factor(alpha)))  + 
   geom_ribbon(aes(ymin=lowest, ymax=highest), alpha=0.3) +
   geom_ribbon(aes(ymin=low, ymax=high), alpha=0.4) +
-  geom_point(aes(y=max_pcc, color=factor(alpha))) + 
+ # geom_point(aes(y=migration_rate, color=factor(alpha))) + 
   stat_function(fun = function(x) 1.0 - 1.0/x) + 
   labs(x=TeX("$N_p$"), y=TeX("$m$"))  + 
   facet_wrap(. ~ alpha) + 
   scale_x_continuous(breaks=seq(2,26,by=2), limits=c(2,26)) +
   scale_y_continuous(breaks=c(0.5,0.6,0.7,0.8,0.9,1.0), limits=c(0.5,1)) +
-  thm
+  thm +
+  coord_cartesian(ylim = c(0.5,1.0)) 
+  
 
 
 output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure6.png"

@@ -1,6 +1,6 @@
 
 # Project Folder
-proj_folder = "/home/michael/phase_transitions_in_metapopulation_synchrony/"
+proj_folder = "/home/michael/phase-transitions-in-metapopulation-synchrony/"
 cd(proj_folder)
 
 include(string(proj_folder, "./src/deps.jl"))
@@ -26,7 +26,9 @@ param_dictionary = Dict(
                         "carrying_capacity" => [1.0],
                         "num_populations" => [5],
                         "alpha"           => [0],  # alpha is meaningless with two pops
+                        "summary_stat"    => [PCC],
 
+                        
                         # _________________________________________________
                         #
                         # simulation parameters

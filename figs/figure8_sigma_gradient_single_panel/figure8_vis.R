@@ -1,4 +1,4 @@
-setwd("~/phase_transitions_in_metapopulation_synchrony/figs/figure8_sigma_gradient_single_panel/output")
+setwd("~/phase-transitions-in-metapopulation-synchrony/figs/figure8_sigma_gradient_single_panel/output")
 library(tidyverse)
 library(ggthemr)
 library(latex2exp)
@@ -37,14 +37,14 @@ convert_to_tex_label = function(string) {
 
 plt=data %>% 
   group_by(treatment) %>%
-  mutate(mean_pcc = mean(summary_stat)) %>%
-  mutate(lowest_pcc = quantile(summary_stat, probs=c(0.025))) %>%
-  mutate(lower_pcc = quantile(summary_stat, probs=c(0.25))) %>%
-  mutate(higher_pcc = quantile(summary_stat, probs=c(0.75))) %>%
-  mutate(highest_pcc = quantile(summary_stat, probs=c(0.975))) %>%
+  mutate(mean_pcc = mean(mean_cc)) %>%
+  mutate(lowest_pcc = quantile(mean_cc, probs=c(0.025))) %>%
+  mutate(lower_pcc = quantile(mean_cc, probs=c(0.25))) %>%
+  mutate(higher_pcc = quantile(mean_cc, probs=c(0.75))) %>%
+  mutate(highest_pcc = quantile(mean_cc, probs=c(0.975))) %>%
   mutate(sigma_facet = paste("$\\sigma =", as.numeric(sigma), "$")) %>%
   mutate(lambda_facet = paste("$\\lambda =", as.numeric(lambda), "$")) %>%
-  ggplot(aes(migration_rate, summary_stat, group=factor(sigma))) + 
+  ggplot(aes(migration_rate, mean_cc, group=factor(sigma))) + 
   geom_ribbon(aes(ymin=lower_pcc, ymax=higher_pcc, fill=factor(sigma)), size=1,alpha=0.4) +
   geom_line(aes(y=mean_pcc, color=factor(sigma)), size=0.5, linetype='dashed',) +
   geom_ribbon(aes(ymin=lowest_pcc, ymax=highest_pcc, fill=factor(sigma)), size=1,alpha=0.4) +

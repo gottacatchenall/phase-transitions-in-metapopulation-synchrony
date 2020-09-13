@@ -1,6 +1,5 @@
 
-# Project Folder
-proj_folder = "/home/michael/phase_transitions_in_metapopulation_synchrony/"
+proj_folder = "/home/michael/phase-transitions-in-metapopulation-synchrony/"
 cd(proj_folder)
 
 include(string(proj_folder, "./src/deps.jl"))
@@ -42,7 +41,7 @@ param_dictionary = Dict(
 
 
 
-treatment_set = create_treatments(param_dictionary, replicates_per_treatment = 50)
+treatment_set = create_treatments(param_dictionary, replicates_per_treatment = 100)
 
 df = run_treatments(treatment_set)
 

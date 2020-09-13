@@ -1,7 +1,7 @@
 using StatsBase, Distributions, DataFrames, CSV, ProgressMeter, LinearAlgebra, Distances, Plots
 
 wd = pwd()
-cd("/home/michael/phase_transitions_in_metapopulation_synchrony/src")
+cd("/home/michael/phase-transitions-in-metapopulation-synchrony/src")
 
 include("./types.jl")
 include("./Parameters.jl")
