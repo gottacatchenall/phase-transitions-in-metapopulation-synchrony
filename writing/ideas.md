@@ -6,6 +6,11 @@
 - How does synchrony change MTE?
 - Use an SBM to measure modular stucture of communities from synchrony data
 
+## Synchrony papers that i need to add
+
+(Koenig & Knops 2000, Williams&Liebhold 2000b, Peltonen et al. 2002)
+
+
 
 # Software Paper
 - Estimate MTE from data

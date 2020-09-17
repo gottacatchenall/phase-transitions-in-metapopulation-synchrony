@@ -62,7 +62,6 @@ function create_treatments(param_dict::Dict; replicates_per_treatment::Int64 = 5
 
 	treatments::Vector{Treatment} = []
 
-	# Treatment(mp, dynamics_model, sim_params, param_bundle, param_values, PCC(), log, abundance_matrix, initial_condition)
 	for t = 1:n_treatments
 		num_pops = metadata.num_populations[t]
 		alpha = metadata.alpha[t]
@@ -85,13 +84,9 @@ function create_treatments(param_dict::Dict; replicates_per_treatment::Int64 = 5
 		dynamics_model = StochasticLogisticWDiffusion()
 		sim_params = SimulationParameters(metadata.number_of_timesteps[t], 0.1, 10, false)
 
-		if (metadata.fixed_metapopulation[t])
-
-		end
-
 		mp = metadata.metapopulation_generator[t](num_populations=num_pops, alpha=alpha)
 
-		tr = Treatment(mp, dynamics_model, sim_params, param_bundle, metadata.summary_stat[t], metadata.log_abundances[t], [])
+        tr = Treatment(mp, dynamics_model, sim_params, param_bundle, metadata.summary_stat[t], metadata.log_abundances[t],metadata.log_metapopulations[t] , [])
 		push!(treatments, tr)
 	end
 
@@ -104,7 +99,7 @@ end
 #
 # =================================================
 
-function run_treatments(treatment_set::TreatmentSet; abundances_path = "./abundances.csv")
+function run_treatments(treatment_set::TreatmentSet; abundances_path = "./abundances.csv", metapopulations_path = "./metapopulations.csv")
 	n_treatments::Int64 = length(treatment_set.treatments)
 	n_replicates::Int64 = treatment_set.replicates_per_treatment
 
@@ -132,6 +127,11 @@ function run_treatments(treatment_set::TreatmentSet; abundances_path = "./abunda
 			if (treatments[t].log_abundances)
 				log_abundances(t, r, treatment_instance, filename=abundances_path)
 			end
+
+            if (treatments[t].log_metapopulation)
+                log_metapopulation(t,r,treatment_instance, filename=metapopulations_path)
+            end
+
 		end
 	end
 

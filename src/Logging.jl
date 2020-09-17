@@ -21,3 +21,23 @@ function log_abundances(treatment_num, replicate, treatment_instance::TreatmentI
         CSV.write(filename, df, append=true)
     end
 end
+
+function log_metapopulation(treatment_num, replicate, treatment_instance::TreatmentInstance; filename="./metapopulations.csv")
+    df = DataFrame(treatment=[], replicate=[], population=[], x=[],y=[])     
+    n_pops = treatment_instance.metapopulation.num_populations
+
+    for p = 1:n_pops
+        pop = treatment_instance.metapopulation.populations[p]
+        push!(df.replicate, replicate)
+        push!(df.treatment, treatment_num)
+        push!(df.population, p)
+        push!(df.x, pop.coordinate[1])
+        push!(df.y, pop.coordinate[2])
+    end
+        
+    if (!isfile(filename))
+        CSV.write(filename, df, append=false)
+    else
+        CSV.write(filename, df, append=true)
+    end
+end

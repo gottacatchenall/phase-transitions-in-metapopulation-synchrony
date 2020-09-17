@@ -24,10 +24,11 @@ convert_to_tex_label = function(string) {
 }
 
 plt = data %>% 
+  group_by(treatment) %>%
   mutate(num_pops_facet=paste("$N_p = ", num_populations, "$")) %>%
   mutate(migration_facet=paste("$m = ", migration_rate, "$")) %>%
   ggplot(aes(timestep, abundance, group=interaction(replicate,population), color=factor(population))) + 
-    geom_line(alpha=(0.7), size=1.3) + 
+    geom_line(alpha=(0.8), size=1.3) + 
     facet_grid(vars(num_pops_facet), vars(migration_facet), labeller = as_labeller(convert_to_tex_label, label_parsed)) +
     labs(title='', y=TeX("$Abundance$"), x=TeX("$m$"), color="Population") +
     geom_hline(aes(yintercept=1.0) ,linetype="dashed", color='black') + 

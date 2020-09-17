@@ -140,6 +140,7 @@ mutable struct Treatment
     theta::ParameterBundle
     summary_stat::Function
     log_abundances::Bool
+    log_metapopulation::Bool
     instances::Vector{TreatmentInstance}
 end
 

@@ -86,7 +86,7 @@ function random_PCC_within_radius(treatment_instance::TreatmentInstance, treatme
     return df
 end
 
-function PCC_and_Eigencentrality(treatment_instance::TreatmentInstnace, treatment_num::Int64, replicate_num::Int64)
+function PCC_and_Eigencentrality(treatment_instance::TreatmentInstance, treatment_num::Int64, replicate_num::Int64)
     # for each population, compute the eigenvector centrality of each location
     # based on its dispersal matrix
     #           (as defined in hansi & ovaskainen (2000), A_ij = A_iA_j e^{-1*d_{ij}*alpha})
@@ -95,30 +95,34 @@ function PCC_and_Eigencentrality(treatment_instance::TreatmentInstnace, treatmen
     num_populations::Int64 = treatment_instance.metapopulation.num_populations
     mp::Metapopulation = treatment_instance.metapopulation
   
-    df = DataFrame(treatment=[], replicate=[], pcc=[], eigencentrality=[])
+    df = DataFrame(treatment=[], replicate=[], pcc=[], closeness=[])
 
     dispersal_matrix = get_dispersal_matrix(get_coordinates(mp), ExpKernel, 1.0)
-    eig_centrality = eigvals(dispersal_matrix) 
+    
+    g = SimpleWeightedGraph(dispersal_matrix)
+
+    closeness = closeness_centrality(g)
+
+    abundance_matrix = treatment_instance.abundance_matrix
 
     for p in 1:num_populations 
         s = 0.0
         for p2 in 1:num_populations
                  if (p != p2)
-                    v1 = abundance_matrix[:,p1]
+                    v1 = abundance_matrix[:,p]
                     v2 = abundance_matrix[:,p2]
                     cc = crosscor(v1,v2,[0])
                     s += cc[1]
-                    ct += 1
                 end
         end
         
         mean_pcc = s/(num_populations-1)
-        ec_i = eig_centrality[p] 
+        centr_i = closeness[p]
 
         push!(df.treatment, treatment_num)
         push!(df.replicate, replicate_num)
         push!(df.pcc, mean_pcc)
-        push!(df.eigencentrality, ec_i)
+        push!(df.closeness, centr_i)
     end
     return df
 end

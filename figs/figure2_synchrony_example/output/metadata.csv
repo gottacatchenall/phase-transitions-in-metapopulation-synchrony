@@ -1,4 +1,7 @@
 treatment,migration_rate,carrying_capacity,sigma,lambda,alpha,log_abundances,num_populations,summary_stat,fixed_metapopulation,metapopulation_generator,number_of_timesteps
-1,0.1,1.0,0.5,1.0,0,true,5,PCC,false,get_random_metapopulation,300
-2,0.3,1.0,0.5,1.0,0,true,5,PCC,false,get_random_metapopulation,300
-3,0.7,1.0,0.5,1.0,0,true,5,PCC,false,get_random_metapopulation,300
+1,0.1,1.0,0.5,1.0,0,true,2,PCC,false,get_random_metapopulation,300
+2,0.3,1.0,0.5,1.0,0,true,2,PCC,false,get_random_metapopulation,300
+3,0.7,1.0,0.5,1.0,0,true,2,PCC,false,get_random_metapopulation,300
+4,0.1,1.0,0.5,1.0,0,true,8,PCC,false,get_random_metapopulation,300
+5,0.3,1.0,0.5,1.0,0,true,8,PCC,false,get_random_metapopulation,300
+6,0.7,1.0,0.5,1.0,0,true,8,PCC,false,get_random_metapopulation,300

@@ -14,9 +14,10 @@ function get_dispersal_matrix(coordinates, kernel, alpha)
 end
 
 function get_dispersal_potential(coordinates, kernel, alpha::Number)
+  n_pops::Int64 = length(coordinates[:,1])
   dispersal_matrix = get_dispersal_matrix(coordinates, kernel, alpha)
   for p = 1:n_pops
     dispersal_matrix[p,:] = dispersal_matrix[p,:] / sum(dispersal_matrix[p,:])    
   end
-  return DispersalPotential(matrix, kernel, alpha)
+  return DispersalPotential(dispersal_matrix, kernel, alpha)
 end

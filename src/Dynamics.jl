@@ -19,6 +19,8 @@ function run_dynamics(treatment_instance::TreatmentInstance)
                 abundance_matrix[abundance_matrix_time_index,p] = treatment_instance.state[p]
             end
             abundance_matrix_time_index += 1
+
+
         end
     end
     return abundance_matrix

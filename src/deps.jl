@@ -1,4 +1,4 @@
-using StatsBase, Distributions, DataFrames, CSV, ProgressMeter, LinearAlgebra, Distances, Plots
+using StatsBase, Distributions, DataFrames, CSV, ProgressMeter, LinearAlgebra, Distances, Plots, LightGraphs, SimpleWeightedGraphs
 
 wd = pwd()
 cd("/home/michael/phase-transitions-in-metapopulation-synchrony/src")

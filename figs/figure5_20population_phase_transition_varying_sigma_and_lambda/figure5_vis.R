@@ -72,10 +72,12 @@ get_logit_slope = function(data, pcc, mig ){
 
 data %>%
   group_by(treatment) %>%
-  mutate(mean_pcc = mean(summary_stat)) %>%
+  mutate(var_pcc = var(mean_cc)) %>%
+  mutate(sigma_facet = paste("$\\sigma =", as.numeric(sigma), "$")) %>%
+  mutate(lambda_facet = paste("$\\lambda =", as.numeric(lambda), "$")) %>%
   ungroup() %>% 
   group_by(lambda, sigma) %>%
-  ggplot(aes(migration_rate, mean_pcc)) + facet_grid(vars(lambda), vars(sigma)) + geom_point()
+  ggplot(aes(migration_rate, var_pcc)) + facet_grid(vars(lambda_facet), vars(sigma_facet)) + geom_point()
   
 data %>%
   group_by(treatment) %>%
