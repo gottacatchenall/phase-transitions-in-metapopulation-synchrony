@@ -1,8 +1,8 @@
-setwd("~/phase-transitions-in-metapopulation-synchrony/figs/figure6_even_mixing/output")
+setwd("~/papers/phase-transitions-in-metapopulation-synchrony/figs/figure6_even_mixing/output")
 library(tidyverse)
 library(ggthemr)
 library(latex2exp)
-ggthemr('fresh', spacing=3)
+ggthemr('fresh', spacing=3, layout='scientific')
 cmuserif = pdfFonts()$`CMU Serif`$family
 thm = theme(panel.border = element_rect(colour = "#222222", fill = NA, size=0.75), 
             panel.spacing=unit(3, "lines"),
@@ -28,16 +28,16 @@ plt = data %>%
   ggplot(aes(num_populations,migration_rate, fill=factor(alpha)))  + 
   geom_ribbon(aes(ymin=lowest, ymax=highest), alpha=0.3) +
   geom_ribbon(aes(ymin=low, ymax=high), alpha=0.4) +
- # geom_point(aes(y=migration_rate, color=factor(alpha))) + 
+  geom_point(aes(y=migration_rate, color=factor(alpha))) + 
   stat_function(fun = function(x) 1.0 - 1.0/x) + 
   labs(x=TeX("$N_p$"), y=TeX("$m$"))  + 
   facet_wrap(. ~ alpha) + 
-  scale_x_continuous(breaks=seq(2,26,by=2), limits=c(2,26)) +
+  scale_x_continuous(breaks=seq(2,25,by=2), limits=c(2,26)) +
   scale_y_continuous(breaks=c(0.5,0.6,0.7,0.8,0.9,1.0), limits=c(0.5,1)) +
   thm +
   coord_cartesian(ylim = c(0.5,1.0)) 
   
-
+plt
 
 output_path = "~/phase_transitions_in_metapopulation_synchrony/writing/figs/figure6.png"
 ggsave(output_path, plot=plt, dpi=320, width = 18, height = 8, units = "in", device=png())

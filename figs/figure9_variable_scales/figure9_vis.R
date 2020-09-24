@@ -1,4 +1,4 @@
-setwd("~/phase-transitions-in-metapopulation-synchrony/figs/figure9_variable_scales/output")
+setwd("~/papers/phase-transitions-in-metapopulation-synchrony/figs/figure9_variable_scales/output")
 library(tidyverse)
 library(ggthemr)
 library(latex2exp)
